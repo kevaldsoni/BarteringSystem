@@ -9,17 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Lets Barter</title>
-	<link rel="icon" href="/barter/favicon/favicon.ico" type="image/x-icon">
-    
+    <title>Letsbarter/Home</title>
+
     <!-- Bootstrap Core CSS -->
-    <link href="/barter/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/barter/css/modern-business.css" rel="stylesheet">
+    <link href="css/modern-business.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/barter/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,31 +42,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/barter/index.jsp">Lets Barter</a>
+                <a class="navbar-brand" href="index.html">Lets Barter</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-              			<% 
-              				if(session.getAttribute("name")!=null){
-								String email = (String)session.getAttribute("email");
-								String name = (String)session.getAttribute("name");
-						%>
-							<a href="#">Welcome <%=name%></a>
-						<%
-							}else{
-						%>
-                        	<a href="/barter/pages/login/login.jsp">Login</a>
-                     	<%
-				     		}
-                      	%>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="/barter/pages/about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="/barter/pages/bartertips.html">Barter Tips</a>
+                        <a href="bartertips.html">Barter Tips</a>
                     </li>
                     
                     <li class="dropdown">
@@ -91,14 +75,16 @@
                             <li>
                                 <a href="portfolio-4-col.html">Technology</a>
                             </li>
-                            
+                            <li>
+                                <a href="portfolio-item.html">Single Portfolio Item</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                         <a href="/barter/pages/faq.html">FAQ</a>
+                         <a href="faq.html">FAQ</a>
                             </li>
                     <li>
-                        <a href="/barter/pages/contact.html">Contact</a>
+                        <a href="contact.html">Contact</a>
                     </li>
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
@@ -146,7 +132,7 @@
     <!-- Header Carousel -->
     
     <header class="main-header" role="banner">
-  <img src="/barter/images/wsj_extremes_bartering_820.jpg" alt="Banner Image"/>
+  <img src="images\wsj_extremes_bartering_820.jpg" alt="Banner Image"/>
     <!--  <header id="myCarousel" class="carousel slide"> -->
         <!-- Indicators -->
        <!--  <ol class="carousel-indicators">
@@ -203,7 +189,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Take a look at our simple to use web-site, browse through the categories. Once you like something send in your offer by filling in our simple barter form and there you are, part of a sustainable future.</p>
-                       <!--  <a href="#" class="btn btn-default">Learn More</a>  -->
+                        <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -214,7 +200,7 @@
                     </div>
                     <div class="panel-body">
                         <p>You can pay for the items with your own items. You can save on shipping and not wait for the UPS guy, by picking up the items on the agreed time which is freedom.</p>
-                       <!--  <a href="#" class="btn btn-default">Learn More</a>  -->
+                        <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -225,7 +211,7 @@
                     </div>
                     <div class="panel-body">
                         <p> The concept of local market has its advantages, like fresh produce or services which are available and accessible locally to all the users. Neighborhood markets are the future of how societies function.</p>
-                        <!-- <a href="#" class="btn btn-default">Learn More</a>  -->
+                        <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -321,10 +307,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="/barter/js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/barter/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>

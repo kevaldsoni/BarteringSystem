@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Barter World</title>
+    <title>Lets Barter</title>
 	<link rel="icon" href="/barter/favicon/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="/barter/css/bootstrap.min.css" rel="stylesheet">

@@ -93,10 +93,10 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("name", name);
             //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60);
-			returnUrl="/pages/login/login.jsp";
+			returnUrl="/index.jsp";
 		}else{
 			returnUrl="/pages/login/login.jsp";
-			request.setAttribute("message","Account Created Successfully");
+			request.setAttribute("message","Authentication Failed");
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(returnUrl);
@@ -161,7 +161,7 @@ public class LoginServlet extends HttpServlet {
 	            session.setAttribute("name", firstname);
 	            //setting session to expiry in 30 mins
 	            session.setMaxInactiveInterval(30*60);
-				returnUrl="/pages/login/login.jsp";
+				returnUrl="/barter/index.jsp";
 			}else{
 				returnUrl="/pages/login/login.jsp";
 				request.setAttribute("message","Account Creation Failed. Kindly try again.");
