@@ -232,10 +232,32 @@ zipcode: {
                         enabled: true,
                         regexp: /^[a-zA-Z\s]+$/,
                         message: 'The password can only consist of alphabetical, number, and space'
+                    },
+                    
+                }
+            },
+            confirmpassword: {
+                validators: {
+                	notEmpty: {
+                        message: 'The confirm password is required and cannot be empty'
+                    },
+                    stringLength: {
+                        enabled: true,
+                        min: 8,
+                        max: 40,
+                        message: 'The password must be more than 8 and less than 40 characters long'
+                    },
+                    regexp: {
+                        enabled: true,
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'The password can only consist of alphabetical, number, and space'
+                    },
+                    identical:{
+                    	field: 'passwd',
+                        message: 'The password and its confirm are not the same'
                     }
                 }
             }
-            
         }
     })
     

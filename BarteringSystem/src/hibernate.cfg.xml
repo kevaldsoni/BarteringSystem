@@ -32,7 +32,8 @@
         
         <property name="hibernate.connection.pool_size">5</property>
 		
-		<mapping resource="hbm/Test.hbm.xml"/>
+		
 		<mapping resource="hbm/Account.hbm.xml"/>
+		<mapping resource="hbm/User.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -4,6 +4,14 @@ import java.util.Date;
 
 public class AccountPojo {
 	
+	private int id;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private int userId;
 	
 	private String emailId;
