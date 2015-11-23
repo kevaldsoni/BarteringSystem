@@ -29,9 +29,9 @@
 </head>
 
 <body>
-<%
+<%-- <%
 FBConnection fbConnection = new FBConnection();
-%>
+%> --%>
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -48,23 +48,8 @@ FBConnection fbConnection = new FBConnection();
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                 <!--    <li>
-                        <a href="/barter/pages/login/login.jsp">Login</a>
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">Login</button>
-                    </li>
-     -->
-                    <li class="active">
-                        <a href="/barter/pages/login/login.jsp">Login</a>
-                    </li>
-    
-                    <li>
-                        <a href="/barter/pages/about.jsp">About</a>
-                    </li>
-                    <li>
-                        <a href="/barter/pages/bartertips.jsp">Barter Tips</a>
-                    </li>
-                    
-                    <li class="dropdown">
+       				
+    				<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
@@ -88,15 +73,50 @@ FBConnection fbConnection = new FBConnection();
                             
                         </ul>
                     </li>
-                    
+    				<li>
+                        <a href="/barter/pages/bartertips.jsp">Barter Tips</a>
+                    </li>
                     <li>
                          <a href="/barter/pages/faq.jsp">FAQ</a>
+                    </li>
+                	<li>
+                        <a href="/barter/pages/about.jsp">About</a>
+                    </li>
+                 	<li>   
+                    	<a href="/barter/pages/contactUs.jsp">Contact</a>
+                    </li>
+                   <li class="dropdown" class="active">
+                        
+                        
+                        <% 
+              				if(session.getAttribute("name")!=null){
+								String email = (String)session.getAttribute("email");
+								String name = (String)session.getAttribute("name");
+						%>
+							
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome <%=name%> <b class="caret"></b></a>
+                       		 <ul class="dropdown-menu">
+                            <li>
+                                <a href="portfolio-3-col.html">My Account</a>
                             </li>
-                    <li>
-                        <a href="/barter/pages/contactUs.jsp">Contact</a>
+                            <li>
+                                <a href="/barter/pages/logout.jsp">Sign Out</a>
+                            </li>
+                            
+                       		 </ul>
+						<%
+							}else{
+						%>
+                        	<a href="/barter/pages/login/login.jsp">Login</a>
+                     	<%
+				     		}
+                      	%>
+                        
+                        
+                        
                     </li>
                     
-                         </ul>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>

@@ -16,18 +16,18 @@ import org.json.JSONObject;
 public class FBConnection {
 	public static final String FB_APP_ID = "1901470236744968";
 	public static final String FB_APP_SECRET = "5b4805ecf5e73a9b82ef668e7c9fc72f";
-	public static final String REDIRECT_URI = "http://localhost:8080/Facebook_Login/home.jsp";
-
+	//public static final String REDIRECT_URI = "http://localhost:8080/barter/facebookweb/home.jsp";
+	public static final String REDIRECT_URI = "http://localhost:8080/barter/FacebookRedirectServlet";
 	static String accessToken = "";
 
 	public String getFBAuthUrl() {
+		System.out.println("inside getFBAuthURL..");
 		String fbLoginUrl = "";
 		try {
 			fbLoginUrl = "http://www.facebook.com/dialog/oauth?" + "client_id="
 					+ FBConnection.FB_APP_ID + "&redirect_uri="
-					+ URLEncoder.encode(FBConnection.REDIRECT_URI, "UTF-8")
-					+ "&scope=email";
-			System.out.println("Login URL ::"+fbLoginUrl);
+					+ URLEncoder.encode(FBConnection.REDIRECT_URI, "UTF-8");
+			System.out.println("Login URL fron getfbauthurl ::"+fbLoginUrl);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -47,7 +47,7 @@ public class FBConnection {
 		return fbGraphUrl;
 	}
 
-	public String getAccessTokenOriginal(String code) {
+	/**public String getAccessTokenOriginal(String code) {
 		System.out.println("Get Access token");
 		if ("".equals(accessToken)) {
 			URL fbGraphURL;
@@ -84,10 +84,10 @@ public class FBConnection {
 		}
 		return accessToken;
 	}
-	
+*/	
 	
 	public String getAccessToken(String code) {
-		System.out.println("Get Access token");
+		System.out.println("!! Get Access token input param:: "+code);
 		if ("".equals(accessToken)) {
 			URL fbGraphURL;
 			try {
