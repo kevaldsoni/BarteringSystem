@@ -11,31 +11,25 @@
     <title>Lets Barter</title>
 	<link rel="icon" href="/barter/favicon/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
-    <link href="/barter/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/barter/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    Custom CSS
     <link href="/barter/css/modern-business.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
+    Custom Fonts
     <link href="/barter/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+ -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>  
-  <script src="/barter/js/bootstrap.min.js"></script>
-  <script src="/barter/js/loginvalidation.js"></script>
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
-  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
   
 </head>
 
 <body>
-	
+	<jsp:include page="/header/header.jsp"></jsp:include>
 	<%
 	FBConnection fbConnection = new FBConnection();
 	if(session.getAttribute("name")!=null){
@@ -49,7 +43,7 @@
 	
 
     <div class="container">    
-        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="margin-top: 50px;">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title">Sign In</div>
@@ -116,7 +110,7 @@
 					 </div>                     
                     </div>  
         </div>
-        <div id="signupbox" style="display:none" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div id="signupbox" style="display:none;margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="panel-title">Sign Up</div>
@@ -294,6 +288,13 @@
 			 </div>
           
     </div>
-    	
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
+  <!-- <script src="/barter/js/jquery.js"></script>  
+  <script src="/barter/js/bootstrap.min.js"></script>
+   -->
+   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/> 
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script> -->
+  <script src="/barter/js/loginvalidation.js"></script>  	
     </body>
     </html>

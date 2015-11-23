@@ -31,117 +31,8 @@
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/barter/index.jsp">Lets Barter</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-              			<% 
-              				if(session.getAttribute("name")!=null){
-								String email = (String)session.getAttribute("email");
-								String name = (String)session.getAttribute("name");
-						%>
-							<a href="#">Welcome <%=name%></a>
-						<%
-							}else{
-						%>
-                        	<a href="/barter/pages/login/login.jsp">Login</a>
-                     	<%
-				     		}
-                      	%>
-                    </li>
-                    <li>
-                        <a href="/barter/pages/about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="/barter/pages/bartertips.html">Barter Tips</a>
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="portfolio-1-col.html">Jewelry</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">Appliance</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">Clothes</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">Furniture</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">Artifacts</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">Technology</a>
-                            </li>
-                            
-                        </ul>
-                    </li>
-                    <li>
-                         <a href="/barter/pages/faq.html">FAQ</a>
-                            </li>
-                    <li>
-                        <a href="/barter/pages/contact.html">Contact</a>
-                    </li>
-                    <!-- <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-home-1.html">Blog Home 1</a>
-                            </li>
-                            <li>
-                                <a href="blog-home-2.html">Blog Home 2</a>
-                            </li>
-                            <li>
-                                <a href="blog-post.html">Blog Post</a>
-                            </li>
-                        </ul>
-                    </li>-->
-                    
-                          
-                    <!-- <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li> -->
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+	
+	 <jsp:include page="/header/header.jsp"></jsp:include>
 
     <!-- Header Carousel -->
     
@@ -287,7 +178,11 @@
                 LetsBarter lets you explore the endless possibilities of trading.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+               <!-- <div align="center" class="embed-responsive embed-responsive-16by9">
+    		   <video autoplay class="embed-responsive-item">
+        		<source src="/barter/video/bartersystemtrailer.mp4" type=video/mp4>
+    		   </video>
+				</div> -->
             </div>
         </div>
         <!-- /.row -->
@@ -316,15 +211,10 @@
                 </div>
             </div>
         </footer>
-
+		<jsp:include page="/footer/footer.jsp"></jsp:include>
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="/barter/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/barter/js/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>

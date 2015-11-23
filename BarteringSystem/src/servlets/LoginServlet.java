@@ -93,14 +93,15 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("name", name);
             //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60);
-			returnUrl="/index.jsp";
+			returnUrl="/barter/index.jsp";
+			response.sendRedirect(returnUrl);
 		}else{
 			returnUrl="/pages/login/login.jsp";
+			RequestDispatcher view = request.getRequestDispatcher(returnUrl);
 			request.setAttribute("message","Authentication Failed");
+	        view.forward(request, response);
 		}
 		
-		RequestDispatcher view = request.getRequestDispatcher(returnUrl);
-        view.forward(request, response);
 
 		
 	}
@@ -162,12 +163,14 @@ public class LoginServlet extends HttpServlet {
 	            //setting session to expiry in 30 mins
 	            session.setMaxInactiveInterval(30*60);
 				returnUrl="/barter/index.jsp";
+				response.sendRedirect(returnUrl);
 			}else{
 				returnUrl="/pages/login/login.jsp";
 				request.setAttribute("message","Account Creation Failed. Kindly try again.");
+				RequestDispatcher view = request.getRequestDispatcher(returnUrl);
+		        view.forward(request, response);
 			}
-			RequestDispatcher view = request.getRequestDispatcher(returnUrl);
-	        view.forward(request, response);
+			
 
 	}catch(Exception e){
 		e.printStackTrace();
