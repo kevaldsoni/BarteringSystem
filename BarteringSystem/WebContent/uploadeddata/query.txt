@@ -1,0 +1,6 @@
+FOREIGN KEY (parent_id) 
+        REFERENCES parent(id)
+        ON DELETE CASCADE
+
+
+create table account(id integer(10) primary key AUTO_INCREMENT ,user_id integer(10),email_id varchar(100),password varchar(100),login_attempt integer(10),account_blocked varchar(20),unblock_time datetime,FOREIGN KEY (user_id) REFERENCES user(user_id)  ON DELETE CASCADE);

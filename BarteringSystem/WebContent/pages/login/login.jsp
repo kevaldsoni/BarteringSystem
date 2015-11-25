@@ -40,10 +40,23 @@
 	<%
 		}
 	%>
-	
+	<div class="container">
+	<!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Login
+                    
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="/barter/index.jsp">Home</a>
+                    </li>
+                    <li class="active">Login</li>
+                </ol>
+            </div>
+        </div>
 
     <div class="container">    
-        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="margin-top: 50px;">                    
+        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="margin-top: 10px;">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title">Sign In</div>
@@ -110,7 +123,7 @@
 					 </div>                     
                     </div>  
         </div>
-        <div id="signupbox" style="display:none;margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div id="signupbox" style="display:none;margin-top: 10px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="panel-title">Sign Up</div>
@@ -288,6 +301,10 @@
 			 </div>
           
     </div>
+    <hr>
+          <!-- Footer -->
+        <jsp:include page="/footer/footer.jsp"></jsp:include>
+        </div>
   <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
   <!-- <script src="/barter/js/jquery.js"></script>  
   <script src="/barter/js/bootstrap.min.js"></script>

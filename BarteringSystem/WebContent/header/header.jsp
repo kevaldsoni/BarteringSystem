@@ -20,6 +20,8 @@
     <!-- Custom Fonts -->
     <link href="/barter/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <link href="/barter/css/socialmedia.css" rel="stylesheet">
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,9 +31,7 @@
 </head>
 
 <body>
-<%-- <%
-FBConnection fbConnection = new FBConnection();
-%> --%>
+
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -95,7 +95,7 @@ FBConnection fbConnection = new FBConnection();
 						%>
 							
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome <%=name%> <b class="caret"></b></a>
-                       		 <ul class="dropdown-menu">
+                       		<ul class="dropdown-menu">
                             <li>
                                 <a href="portfolio-3-col.html">My Account</a>
                             </li>

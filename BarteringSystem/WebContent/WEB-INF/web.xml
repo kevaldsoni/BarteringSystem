@@ -4,7 +4,7 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+ <!--  <servlet>
     <description>This is a test Servlet</description>
     <display-name>TestServlet</display-name>
     <servlet-name>TestServlet</servlet-name>
@@ -17,7 +17,7 @@
   <servlet-mapping>
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/pages/login/registerUser</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <servlet>
     <description>This is a loginaccount Servlet</description>
     <display-name>LoginServlet</display-name>
@@ -28,8 +28,21 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/pages/login/userLogin</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description>This is a new barter request Servlet</description>
+    <display-name>NewBarterServlet</display-name>
+    <servlet-name>NewBarterServlet</servlet-name>
+    <servlet-class>servlets.NewBarterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewBarterServlet</servlet-name>
+    <url-pattern>/pages/newBarter</url-pattern>
+  </servlet-mapping>
+  
+  
   <error-page>
-		<error-code>400</error-code>
-		<location>/includes/error_redirects/notFound.html</location>
-	</error-page>
+    <error-code>400</error-code>
+    <location>/includes/error_redirects/notFound.html</location>
+  </error-page>
 </web-app>

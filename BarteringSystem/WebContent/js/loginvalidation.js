@@ -261,6 +261,94 @@ zipcode: {
         }
     })
     
+    $('#newBarterForm').bootstrapValidator({
+       // container: '#messages',
+    	framework : 'bootstrap',
+    	live: 'enabled',
+    	err: {
+            container: function($field, validator) {
+                // Look at the markup
+                //  <div class="col-xs-4">
+                //      <field>
+                //  </div>
+                //  <div class="col-xs-5 messageContainer"></div>
+                return $field.parent().next('.newBarterMessageContainer');
+            }
+        },
+       
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            
+        	title: {
+        		
+                validators: {
+                    notEmpty: {
+                        message: 'Title is required and cannot be empty'
+                    },
+                    regexp: {
+                        enabled: true,
+                        regexp: /^[A-z0-9\s]+$/,
+                        message: 'The First Name is not valid'
+                    }
+                    
+                }
+            },
+        	
+        	
+            myOffer: {
+        		
+                validators: {
+                    notEmpty: {
+                        message: 'Your Barter Offer detail is required and cannot be empty'
+                    },
+                    regexp: {
+                        enabled: true,
+                        regexp: /^[A-z]+$/,
+                        message: 'The First Name is not valid'
+                    }
+                    
+                }
+            },
+            
+            askOffer: {
+        		
+                validators: {
+                    notEmpty: {
+                        message: 'Expected Barter Offer detail is required and cannot be empty'
+                    },
+                    regexp: {
+                        enabled: true,
+                        regexp: /^[A-z]+$/,
+                        message: 'The First Name is not valid'
+                    }
+                    
+                }
+            },
+            
+            contactDetail: {
+        		
+                validators: {
+                    notEmpty: {
+                        message: 'The phone number is required and cannot be empty'
+                    },
+                    regexp: {
+                        enabled: true,
+                        regexp: /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/,
+                        message: 'The phone number entered is not valid'
+                    }
+                    
+                }
+            },
+            
+           
+            
+        }
+    })
+    
 
 });
 

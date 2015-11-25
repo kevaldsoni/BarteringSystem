@@ -79,7 +79,7 @@ public class FBGraph {
 			while( keys.hasNext() ) {
 			    String key = (String)keys.next();
 			    String value = json.getString(key);
-			   	fbProfile.put(key, value);
+			    fbProfile.put(key, value);
 			}
 			
 		} catch (JSONException e) {

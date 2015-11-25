@@ -52,8 +52,10 @@ public class FacebookRedirectServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			String email = fbProfileData.get("email");
-			if(email != null && email.length()>0)
-			session.setAttribute("email", email);
+			if(email != null && email.length()>0){
+				log.info("Email Obtained ::"+email);
+				session.setAttribute("email", email);
+			}
             session.setAttribute("name", fbProfileData.get("first_name"));
             //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60);
