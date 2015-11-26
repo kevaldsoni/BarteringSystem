@@ -291,8 +291,8 @@ zipcode: {
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^[A-z0-9\s]+$/,
-                        message: 'The First Name is not valid'
+                        regexp: /^[A-Za-z0-9'\.\-\s\,]+$/,
+                        message: 'Enter valid characters in Title'
                     }
                     
                 }
@@ -307,8 +307,8 @@ zipcode: {
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^[A-z]+$/,
-                        message: 'The First Name is not valid'
+                        regexp: /^[A-Za-z0-9'\.\-\s\,]+$/,
+                        message: 'Enter valid characters in your description'
                     }
                     
                 }
@@ -322,8 +322,8 @@ zipcode: {
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^[A-z]+$/,
-                        message: 'The First Name is not valid'
+                        regexp: /^[A-Za-z0-9'\.\-\s\,]+$/,
+                        message: 'Enter valid characters in your description'
                     }
                     
                 }

@@ -4,20 +4,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
- <!--  <servlet>
-    <description>This is a test Servlet</description>
-    <display-name>TestServlet</display-name>
-    <servlet-name>TestServlet</servlet-name>
-    <servlet-class>testservletpackage.TestServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TestServlet</servlet-name>
-    <url-pattern>/registerUser</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>TestServlet</servlet-name>
-    <url-pattern>/pages/login/registerUser</url-pattern>
-  </servlet-mapping> -->
   <servlet>
     <description>This is a loginaccount Servlet</description>
     <display-name>LoginServlet</display-name>
@@ -38,8 +24,18 @@
   <servlet-mapping>
     <servlet-name>NewBarterServlet</servlet-name>
     <url-pattern>/pages/newBarter</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> 
   
+  <!-- <servlet>
+    <description>This is a new barter request Servlet</description>
+    <display-name>CheckServlet</display-name>
+    <servlet-name>CheckServlet</servlet-name>
+    <servlet-class>servlets.CheckServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckServlet</servlet-name>
+    <url-pattern>/pages/newBarter</url-pattern>
+  </servlet-mapping> -->
   
   <error-page>
     <error-code>400</error-code>

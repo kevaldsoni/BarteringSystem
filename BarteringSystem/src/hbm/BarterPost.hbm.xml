@@ -8,7 +8,7 @@
       <meta attribute="class-description">
          This class contains information about barter request. 
       </meta>
-      <id name="id" type="int" column="req_id">
+      <id name="reqId" type="int" column="req_id">
          <generator class="native"/>
       </id>
       <property name="title" column="title" type="string"/>
@@ -16,6 +16,8 @@
       <property name="itemOfferedDesc" column="item_offered" type="string"/>
       <property name="expectedCatId" column="expected_cat_id" type="int"/>
       <property name="expectedItemDesc" column="expected_item" type="string"/>
-      <property name="itemImage" column="trade_contact" type="string"/>
+      <property name="itemImage" column="item_picture" type="string"/>
+      <property name="tradeContact" column="trade_contact" type="string"/>
+      <property name="userId" column="user_id" type="int"/>
    </class>
 </hibernate-mapping>

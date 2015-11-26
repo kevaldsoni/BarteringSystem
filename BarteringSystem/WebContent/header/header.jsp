@@ -96,6 +96,9 @@
 							
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome <%=name%> <b class="caret"></b></a>
                        		<ul class="dropdown-menu">
+                       		<li>
+                                <a href="/barter/pages/newBarterForm.jsp">New Barter Request</a>
+                            </li>
                             <li>
                                 <a href="portfolio-3-col.html">My Account</a>
                             </li>

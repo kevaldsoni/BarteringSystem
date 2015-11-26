@@ -42,6 +42,17 @@
                                     <p>Error:</p>
                                     <span></span>
                                 </div>
+                                
+                                <%
+								String message=(String)request.getAttribute("message");
+								if(message!=null && message.length()>0){
+								%>
+								<div class="alert alert-success">
+  									<%=message%>
+								</div>
+							   <%
+								}
+							   %>
                                     
                                 <div class="form-group">
                                     <label for="title" class="col-md-4 control-label">Title Message</label>
@@ -97,7 +108,7 @@
                                 <div class="form-group">
                                     <label for="imageUpload" class="col-md-4 control-label">Upload Image of Product</label>
                                     <div class="col-md-8">
-                                        <input type="file" name="files[]" id="js-upload-files" multiple>
+                                        <input type="file" name="file" id="js-upload-files">
                                     </div>
                                 </div>
                                 
