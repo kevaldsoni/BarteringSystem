@@ -26,7 +26,7 @@
     <url-pattern>/pages/newBarter</url-pattern>
   </servlet-mapping> 
   
-  <!-- <servlet>
+  <servlet>
     <description>This is a new barter request Servlet</description>
     <display-name>CheckServlet</display-name>
     <servlet-name>CheckServlet</servlet-name>
@@ -34,8 +34,8 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CheckServlet</servlet-name>
-    <url-pattern>/pages/newBarter</url-pattern>
-  </servlet-mapping> -->
+    <url-pattern>/pages/uploadservlet</url-pattern>
+  </servlet-mapping>
   
   <error-page>
     <error-code>400</error-code>

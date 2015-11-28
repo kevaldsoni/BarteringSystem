@@ -31,7 +31,7 @@ $(document).ready(function() {
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+                        regexp: /\S+@\S+\.\S+/,
                         message: 'The email address is not valid'
                     }
                     
@@ -230,7 +230,7 @@ zipcode: {
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^[a-zA-Z\s]+$/,
+                        regexp: /^[a-zA-Z0-9\s]+$/,
                         message: 'The password can only consist of alphabetical, number, and space'
                     },
                     
@@ -249,7 +249,7 @@ zipcode: {
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^[a-zA-Z\s]+$/,
+                        regexp: /^[a-zA-Z0-9\s]+$/,
                         message: 'The password can only consist of alphabetical, number, and space'
                     },
                     identical:{

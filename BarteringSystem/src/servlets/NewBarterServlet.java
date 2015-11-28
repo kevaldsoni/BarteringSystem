@@ -1,9 +1,15 @@
 package servlets;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -82,6 +89,9 @@ public class NewBarterServlet extends HttpServlet {
 		
 		log.info("In New Barter Servlet :: doPost Method");
 		
+		NewBarterServlet ser = new NewBarterServlet();
+		
+		String imageName=ser.uploadFile(request,response);
 		String title=request.getParameter("title");
 		String offeringProductCategory=request.getParameter("offeringProductCategory");
 		String myOffer=request.getParameter("myOffer");
@@ -100,7 +110,7 @@ public class NewBarterServlet extends HttpServlet {
 		barterPostPojo.setExpectedCatId(expectedProductCategoryValue);
 		barterPostPojo.setExpectedItemDesc(askOffer);
 		barterPostPojo.setTradeContact(contactDetail);
-		
+		barterPostPojo.setItemImage(imageName);
 		String emailLoggedIn = (String)request.getSession().getAttribute("email");
 		if(emailLoggedIn!=null && emailLoggedIn.length()>0){
 			log.info("Email ::"+emailLoggedIn);
@@ -109,60 +119,11 @@ public class NewBarterServlet extends HttpServlet {
 		}	
 		else
 			log.info("email not found in session");
-		//int userId = getUserUtility().fetchUserId(emailLoggedIn);
 		
 		
 		
-		
-			
-        //Code to upload Files
-		// Check that we have a file upload request
-        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-
-        if (!isMultipart) {
-            return;
-        }
-        
-        DiskFileItemFactory factory = new DiskFileItemFactory();
-        factory.setSizeThreshold(MAX_MEMORY_SIZE);
-        String uploadFolder =  DATA_DIRECTORY;
-        ServletFileUpload upload = new ServletFileUpload(factory);
-        upload.setSizeMax(MAX_REQUEST_SIZE);
-
         try {
-            // Parse the request
-            /**List items = upload.parseRequest(request);
-            log.info("No of files in list :: "+items.size());
-            Iterator iter = items.iterator();
-            while (iter.hasNext()) {
-                FileItem item = (FileItem) iter.next();
-                if (!item.isFormField()) {
-                    String fileName = new File(item.getName()).getName();
-                    barterPostPojo.setItemImage(fileName);
-                    String filePath = uploadFolder + File.separator + fileName;
-                    File uploadedFile = new File(filePath);
-                    System.out.println(filePath);
-                    // saves the file to upload directory
-                    item.write(uploadedFile);
-                }
-            }*/
-            
-        	if(ServletFileUpload.isMultipartContent(request)){
-        		log.info("multipart request found");
-        		List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
-        		log.info("List of files :: "+multiparts.size());
-        		for(FileItem item : multiparts){
-        		     if(!item.isFormField()){
-        		      String name = new File(item.getName()).getName();
-        		      barterPostPojo.setItemImage(name);
-        		      item.write( new File(DATA_DIRECTORY+ File.separator + name));
-        		     }
-        		}
-        		     }else{
-        			log.info("multipart request not found");
-        		}
-
-        	
+           
         	
             int requestId = 0 ;
     		if(barterPostPojo!=null)
@@ -174,14 +135,118 @@ public class NewBarterServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher(returnUrl);
 	        view.forward(request, response);
     		
-            /**getServletContext().getRequestDispatcher("/barter/pages/newBarterForm.jsp").forward(
-                    request, response);
-             */
-        } catch (FileUploadException ex) {
-            throw new ServletException(ex);
-        } catch (Exception ex) {
+          
+        }  catch (Exception ex) {
             throw new ServletException(ex);
         }
 	}
+	
+/**	public void uploadFileGoodCode(HttpServletRequest request){
+		 File file ;
+		   int maxFileSize = 5000 * 1024;
+		   int maxMemSize = 5000 * 1024;
+		   String filePath = "D:\\imageupload";
+		  
+		 try{ 
+
+		      DiskFileItemFactory factory = new DiskFileItemFactory();
+		      factory.setSizeThreshold(maxMemSize);
+		      
+		      ServletFileUpload upload = new ServletFileUpload(factory);
+		      upload.setSizeMax( maxFileSize );
+		      
+		         // Parse the request to get file items.
+		         List fileItems = upload.parseRequest(request);
+		         log.info("uploaded items ::"+fileItems.size());
+		         // Process the uploaded file items
+		         Iterator i = fileItems.iterator();
+
+		         
+		         while ( i.hasNext () ) 
+		         {
+		        	 
+		            FileItem fi = (FileItem)i.next();
+		            if ( !fi.isFormField () )	
+		            {
+		            // Get the uploaded file parameters
+		            	log.info("is formm field");
+		            String fieldName = fi.getFieldName();
+		            String fileName = fi.getName();
+		            log.info(fileName);
+		            String name = new File(fi.getName()).getName();
+		            log.info("new "+fileName);
+		            String fp = filePath + File.separator + name;
+		            log.info("dir "+fp);
+		            fi.write( new File(fp));
+		            fileItems.clear();
+		            }
+		         }
+		 }catch (FileUploadException ex) {
+	            ex.printStackTrace();
+	        }catch (Exception ex) {
+	        	 ex.printStackTrace();
+	        }
+		 
+		 } */
+	
+	public String uploadFile(HttpServletRequest request,HttpServletResponse response){
+		
+		// Create path components to save the file
+	    final String path = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata";
+	    String fileNameInDB = null;
+
+	    OutputStream out = null;
+	    InputStream filecontent = null;
+	    try {
+	    	final Part filePart = request.getPart("file");
+		    String fileName = getFileName(filePart);
+		    
+		    
+		    Random r = new Random(System.currentTimeMillis());
+		    int tempRandom = 10000+r.nextInt(20000);
+		    log.info("Random value::"+tempRandom+"  File NAME in upload :: "+fileName);
+		    fileNameInDB =tempRandom+"_"+fileName;
+		    log.info("File Name for DB :: "+fileNameInDB);
+		    fileName=fileNameInDB;
+		    log.info("File to be pushed :: "+fileNameInDB);
+		    log.info("File NAME in upload :: "+fileName);
+		    final PrintWriter writer = response.getWriter();
+		    String dir = path + File.separator + fileName;
+	  
+	        out = new FileOutputStream(new File(dir));
+	        filecontent = filePart.getInputStream();
+
+	        int read = 0;
+	        final byte[] bytes = new byte[1024];
+
+	        while ((read = filecontent.read(bytes)) != -1) {
+	            out.write(bytes, 0, read);
+	        }
+	    } catch (Exception fne) {
+	        fne.printStackTrace();
+	    } finally {
+	    	try{
+	    	 out.close();
+	    	}catch(Exception e){
+	    		e.printStackTrace();
+	    	}
+	    }
+	    return fileNameInDB;
+	}
+
+	private String getFileName(final Part part) {
+	    final String partHeader = part.getHeader("content-disposition");
+	    log.info("Part Header = {0}"+ partHeader);
+	    for (String content : part.getHeader("content-disposition").split(";")) {
+	        if (content.trim().startsWith("filename")) {
+	            return content.substring(
+	                    content.indexOf('=') + 1).trim().replace("\"", "");
+	        }
+	    }
+	    return null;
+	}
+		
+		
+	
 
 }

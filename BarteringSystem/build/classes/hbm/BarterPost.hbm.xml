@@ -8,7 +8,7 @@
       <meta attribute="class-description">
          This class contains information about barter request. 
       </meta>
-      <id name="reqId" type="int" column="req_id">
+      <id name="reqId" type="int" column="reqId">
          <generator class="native"/>
       </id>
       <property name="title" column="title" type="string"/>

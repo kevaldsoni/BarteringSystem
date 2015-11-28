@@ -20,6 +20,16 @@ public class UserPojo {
 	
 	private String city;
 	
+	private int userRating;
+	
+	public int getUserRating() {
+		return userRating;
+	}
+
+	public void setUserRating(int userRating) {
+		this.userRating = userRating;
+	}
+
 	public int getUserId() {
 		return userId;
 	}

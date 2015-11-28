@@ -15,7 +15,7 @@ body {
 
 
 .caption {
-    height: 130px;
+    height: 75px;
     overflow: hidden;
 }
 
@@ -35,6 +35,7 @@ body {
 
 .thumbnail {
     padding: 0;
+    height: 350px;
 }
 
 .thumbnail .caption-full {

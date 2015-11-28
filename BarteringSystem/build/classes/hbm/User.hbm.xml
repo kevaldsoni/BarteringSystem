@@ -21,5 +21,6 @@
       <property name="city" column="city" type="string"/>
       <property name="state" column="state" type="string"/>
       <property name="zipcode" column="zipcode" type="int"/>
+      <property name="userRating" column="user_rating" type="int"/>
    </class>
 </hibernate-mapping>
