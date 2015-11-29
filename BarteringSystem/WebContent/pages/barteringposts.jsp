@@ -29,11 +29,14 @@
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Browwse Categories</p>
+                <p class="lead">Browse Categories</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                    <a href="#" class="list-group-item">Food Products</a>
+                    <a href="#" class="list-group-item">Automotive</a>
+                    <a href="#" class="list-group-item">Clothes</a>
+                    <a href="#" class="list-group-item">Furniture</a>
+                    <a href="#" class="list-group-item">Services</a>
+                    <a href="#" class="list-group-item">Electronics</a>
                 </div>
             </div>
 
@@ -49,11 +52,51 @@
     <!-- /.container -->
 
     <div class="container">
-
-        <hr>
-
+	<hr>
 	<jsp:include page="/footer/footer.jsp"></jsp:include>
     </div>
+    <div class="modal fade" id="barterRequestModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:15px 20px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="col-md-4" style="float: right;"></span>Start Barter</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form">
+            <div class="form-group">
+              <label for="barterOfferPostId">Enter Your Bartering Post Number</label>
+              <input type="text" class="form-control" id="barterOfferPostId" placeholder="Enter post number">
+            </div>
+            <button type="submit" class="btn btn-success btn-block" id="sendBarterRequest"><span class="glyphicon glyphicon-off"></span> Send Request </button>
+          </form>
+        </div>
+        
+      </div>
+      <!-- End of modal content -->
+    </div>
+  </div> 
+  
+  
+  
+  <div class="modal fade" id="barterConfirmationModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Lets Barter</h4>
+        </div>
+        <div class="modal-body">
+          <p>Barter Request Sent !!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <script type="text/javascript" src="/barter/js/barterDetailData.js"></script>
 </body>
 

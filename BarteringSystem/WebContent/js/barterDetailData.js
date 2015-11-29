@@ -5,6 +5,17 @@
 $(document).ready(function(){
 	
 	fetchBarteringPosts("All");
+	
+	$("#sendBarterRequest").click(function(){
+       //alert("Request Sent");
+      // $(this).text("Request Sent !!");
+       
+      // $("#barterConfirmationModal").modal();
+    });
+	
+	
+	
+	
 });
 
 
@@ -30,7 +41,7 @@ $.ajax({
 }
 
 function setSelectedBarterPost(barterPostId){
-	alert(barterPostId);
+	$("#barterRequestModal").modal();
 	//jQuery("#tree ul li").removeClass("selected");
     //jQuery(el).closest('li').addClass("selected");
 	

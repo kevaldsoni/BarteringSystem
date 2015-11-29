@@ -66,12 +66,12 @@
                                     <label for="offeringProductCategory" class="col-md-4 control-label">Category of Offering Product</label>
                                     <div class="col-md-8">
 									<select class="form-control" name="offeringProductCategory">
-										<option value="1">Jewelry</option>
-										<option value="2">Appliance</option>
+										<option value="1">Food Products</option>
+										<option value="2">Automotive</option>
 										<option value="3">Clothes</option>
 										<option value="4">Furniture</option>
-										<option value="5">Artifacts</option>
-										<option value="6">Technology</option>
+										<option value="5">Services</option>
+										<option value="6">Electronics</option>
 										</select>
 									</div>
 								</div>
@@ -87,12 +87,12 @@
                                     <label for="expectedProductCategory" class="col-md-4 control-label">Category of Expected Product</label>
                                     <div class="col-md-8">
 									<select class="form-control" name="expectedProductCategory">
-										<option value="1">Jewelry</option>
-										<option value="2">Appliance</option>
+										<option value="1">Food Products</option>
+										<option value="2">Automotive</option>
 										<option value="3">Clothes</option>
 										<option value="4">Furniture</option>
-										<option value="5">Artifacts</option>
-										<option value="6">Technology</option>
+										<option value="5">Services</option>
+										<option value="6">Electronics</option>
 										</select>
 									</div>
 								</div>

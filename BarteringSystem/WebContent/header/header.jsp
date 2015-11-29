@@ -52,11 +52,14 @@
     				<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="portfolio-1-col.html">Jewelry</a>
+                        	<li>
+                                <a href="/barter/pages/barteringposts.jsp">All Barter Posts</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">Appliance</a>
+                                <a href="portfolio-1-col.html">Food Products</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-2-col.html">Automotive</a>
                             </li>
                             <li>
                                 <a href="portfolio-3-col.html">Clothes</a>
@@ -65,10 +68,10 @@
                                 <a href="portfolio-4-col.html">Furniture</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">Artifacts</a>
+                                <a href="portfolio-3-col.html">Services</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">Technology</a>
+                                <a href="portfolio-4-col.html">Electronics</a>
                             </li>
                             
                         </ul>

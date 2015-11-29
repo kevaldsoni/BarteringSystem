@@ -16,12 +16,12 @@
 <div class="footer_mid" style="width: 250px;margin-right:50px;float: left;padding-left: 100px;">
 <h2 style="font-size: 14px;color: #666;font-weight: bolder;">Browse Barter</h2>
 <ul class="list-unstyled">
-<li><a  href="#" style="color: #666666 !important;">Jewelry</a></li>
-<li><a  href="#" style="color: #666666 !important;">Appliance</a></li>
+<li><a  href="#" style="color: #666666 !important;">Food Products</a></li>
+<li><a  href="#" style="color: #666666 !important;">Automotive</a></li>
 <li><a  href="#" style="color: #666666 !important;">Clothes</a></li>
 <li><a  href="#" style="color: #666666 !important;">Furniture</a></li>
-<li><a  href="#" style="color: #666666 !important;">Artifacts</a></li>
-<li><a  href="#" style="color: #666666 !important;">Technology</a></li>
+<li><a  href="#" style="color: #666666 !important;">Services</a></li>
+<li><a  href="#" style="color: #666666 !important;">Electronics</a></li>
 </ul>
 </div>
 

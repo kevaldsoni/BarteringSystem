@@ -11,6 +11,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 
 import beans.AccountPojo;
@@ -56,13 +58,15 @@ public class BarterPostUtility {
 	}
 	
 	
-	public List<BarterPostPojo> fetchBarteringPosts(String category){
-		
+	public List<BarterPostPojo> fetchBarteringPostsForGuestUser(String category){
+		log.info("fetchBarteringPostsForGuestUser :: "+category);
 		List<BarterPostPojo> barterList = new ArrayList<BarterPostPojo>();
-		
+		int userId = 0;
+		int catId = 0;
 		Transaction tx = null;
 		Session session = factory.openSession();
 		try{
+			
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(BarterPostPojo.class);
 			if("All".equalsIgnoreCase(category)){
@@ -80,7 +84,7 @@ public class BarterPostUtility {
 				
 			}
 			/*Finding Total Pages for Pagination*/
-			int maxResultsPerPage = 6;
+			int maxResultsPerPage = 9;
 			int totalRecords = barterList.size();
 			int totalPages=(totalRecords%maxResultsPerPage==0?totalRecords/maxResultsPerPage:(totalRecords/maxResultsPerPage)+1);
 			log.info("Total Records :: "+totalRecords+" No of pages required ::"+totalPages);
@@ -96,5 +100,66 @@ public class BarterPostUtility {
 		return barterList;
 	}
 	
+	public List<BarterPostPojo> fetchAllPostForLoginUser(String category,String email){
+		log.info("fetchAllPostForLoginUser :: "+category+" "+email);
+		List<BarterPostPojo> barterList = new ArrayList<BarterPostPojo>();
+		int userId = 0;
+		int catId = 0;
+		Transaction tx = null;
+		List results = null;
+		Session session = factory.openSession();
+		try{
+			
+			log.info("Email obtained in param :: "+email);
+			
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(BarterPostPojo.class);
+			UserUtility utilObj = new UserUtility();
+			userId = utilObj.fetchUserIdFromEmail(email);
+			if("All".equalsIgnoreCase(category)){
+				
+				cr.add(Restrictions.ne("userId", userId));
+				results = cr.list();
+				
+			}else{
+				
+				
+				Criterion usercheck = Restrictions.ne("userId", userId);
+				Criterion categorycheck = Restrictions.eq("offeringCatId", category);
+				LogicalExpression andExp = Restrictions.and(usercheck, categorycheck);
+				cr.add( andExp );
+				results = cr.list();
+				
+				
+			}
+			
+			if(results!=null && results.size()>0){
+					for (Iterator iterator = results.iterator(); iterator.hasNext();){
+						BarterPostPojo pobj = (BarterPostPojo) iterator.next(); 
+						log.info("Barter Post ID :: "+pobj.getReqId());
+						barterList.add(pobj);
+					}
+			}else{
+					log.info("No Barter Post Found");
+			}
+			
+			/*Finding Total Pages for Pagination*/
+			int maxResultsPerPage =9 ;
+			int totalRecords = barterList.size();
+			int totalPages=(totalRecords%maxResultsPerPage==0?totalRecords/maxResultsPerPage:(totalRecords/maxResultsPerPage)+1);
+			log.info("Total Records :: "+totalRecords+" No of pages required ::"+totalPages);
+			tx.commit();
+		}catch(HibernateException e){
+			if(tx!=null)
+				tx.rollback();
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		
+		return barterList;
+		
+		
+	}
 
 }

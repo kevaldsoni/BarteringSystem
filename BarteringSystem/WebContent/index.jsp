@@ -178,11 +178,11 @@
                 LetsBarter lets you explore the endless possibilities of trading.</p>
             </div>
             <div class="col-md-6">
-               <!-- <div align="center" class="embed-responsive embed-responsive-16by9">
+                <div align="center" class="embed-responsive embed-responsive-16by9">
     		   <video autoplay class="embed-responsive-item">
-        		<source src="/barter/video/bartersystemtrailer.mp4" type=video/mp4>
+        		<source src="/barter/video/bartersystemvideo.mp4" type=video/mp4>
     		   </video>
-				</div> -->
+				</div> 
             </div>
         </div>
         <!-- /.row -->

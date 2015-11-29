@@ -76,13 +76,13 @@ public class UserUtility {
 			List results = cr.list();
 			
 			if(results!=null && results.size()>0){
-				log.info("User Found ");
+				
 				for (Iterator iterator = results.iterator(); iterator.hasNext();){
 					UserPojo pobj = (UserPojo) iterator.next(); 
 					name= pobj.getFirstName();
 				}
 			}else{
-				log.info("User not found");
+				log.info("fetchUsername :: Result not  found");
 			}
 			tx.commit();
 			
@@ -110,13 +110,13 @@ public class UserUtility {
 			List results = cr.list();
 			
 			if(results!=null && results.size()>0){
-				log.info("User Found ");
+				
 				for (Iterator iterator = results.iterator(); iterator.hasNext();){
 					UserPojo pobj = (UserPojo) iterator.next(); 
 					userId= pobj.getUserId();
 				}
 			}else{
-				log.info("User not found");
+				log.info("fetchUserIdFromEmail :: No result found");
 			}
 			tx.commit();
 			
@@ -132,6 +132,39 @@ public class UserUtility {
 		
 	}
 	
+	public int fetchUserRatingFromUserId(int userId){
+		int userRating=0;
+		
+		Transaction tx = null;
+		Session session = factory.openSession();
+		try{
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(UserPojo.class);
+			cr.add(Restrictions.eq("userId", userId));
+			List results = cr.list();
+			
+			if(results!=null && results.size()>0){
+				
+				for (Iterator iterator = results.iterator(); iterator.hasNext();){
+					UserPojo pobj = (UserPojo) iterator.next(); 
+					userRating= pobj.getUserRating();
+				}
+			}else{
+				log.info("fetchUserRatingFromUserId :: No result found");
+			}
+			tx.commit();
+			
+		}catch(HibernateException e){
+			if(tx!=null)
+				tx.rollback();
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		
+		return userRating;
+		
+	}
 	
 	public int addNewUser(UserPojo userObj){
 		int  userId = 0;
