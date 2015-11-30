@@ -98,6 +98,76 @@ public class UserUtility {
 		
 	}
 	
+	public String fetchNamefromUserId(int userId){
+		String name=null;
+		
+		Transaction tx = null;
+		Session session = factory.openSession();
+		try{
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(UserPojo.class);
+			cr.add(Restrictions.eq("userId", userId));
+			List results = cr.list();
+			
+			if(results!=null && results.size()>0){
+				
+				for (Iterator iterator = results.iterator(); iterator.hasNext();){
+					UserPojo pobj = (UserPojo) iterator.next(); 
+					String fname= pobj.getFirstName();
+					String lname = pobj.getLastName();
+					name= fname+" "+lname;
+				}
+			}else{
+				log.info("fetchNamefromUserId :: Result not  found");
+			}
+			tx.commit();
+			
+		}catch(HibernateException e){
+			if(tx!=null)
+				tx.rollback();
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		
+		return name;
+		
+	}
+	
+	public String fetchContactfromUserId(int userId){
+		String contact=null;
+		
+		Transaction tx = null;
+		Session session = factory.openSession();
+		try{
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(UserPojo.class);
+			cr.add(Restrictions.eq("userId", userId));
+			List results = cr.list();
+			
+			if(results!=null && results.size()>0){
+				
+				for (Iterator iterator = results.iterator(); iterator.hasNext();){
+					UserPojo pobj = (UserPojo) iterator.next(); 
+					contact = pobj.getPhone();
+				}
+			}else{
+				log.info("fetchContactfromUserId :: Result not  found");
+			}
+			tx.commit();
+			
+		}catch(HibernateException e){
+			if(tx!=null)
+				tx.rollback();
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		
+		return contact;
+		
+	}
+	
 	public int fetchUserIdFromEmail(String email){
 		int userId=0;
 		
@@ -216,5 +286,41 @@ public class UserUtility {
 		
 		
 		return result;
+	}
+	
+	public UserPojo fetchUserProfile(String email){
+		log.info("Fetching user profile for Editing");
+		UserPojo obj = new UserPojo();
+		
+		Transaction tx = null;
+		Session session = factory.openSession();
+		try{
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(UserPojo.class);
+			cr.add(Restrictions.eq("emailId", email));
+			List results = cr.list();
+			
+			if(results!=null && results.size()>0){
+				
+				for (Iterator iterator = results.iterator(); iterator.hasNext();){
+					UserPojo pobj = (UserPojo) iterator.next(); 
+					obj = pobj;
+					log.info("Profile found ::"+obj.getUserId());
+				}
+			}else{
+				log.info("fetchUserIdFromEmail :: No result found");
+			}
+			tx.commit();
+			
+		}catch(HibernateException e){
+			if(tx!=null)
+				tx.rollback();
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		
+		return obj;
+		
 	}
 }

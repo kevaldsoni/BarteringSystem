@@ -103,7 +103,7 @@
                                 <a href="/barter/pages/newBarterForm.jsp">New Barter Request</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">My Account</a>
+                                <a href="/barter/pages/myAccount.jsp">My Account</a>
                             </li>
                             <li>
                                 <a href="/barter/pages/logout.jsp">Sign Out</a>

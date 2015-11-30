@@ -26,7 +26,7 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">
+        <div class="row" style="padding-top: 20px;">
 
             <div class="col-md-3">
                 <p class="lead">Browse Categories</p>
@@ -65,11 +65,12 @@
           <h4><span class="col-md-4" style="float: right;"></span>Start Barter</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form role="form" method="post">
             <div class="form-group">
               <label for="barterOfferPostId">Enter Your Bartering Post Number</label>
               <input type="text" class="form-control" id="barterOfferPostId" placeholder="Enter post number">
             </div>
+            <div id="secReqId" style="display: none;"></div>
             <button type="submit" class="btn btn-success btn-block" id="sendBarterRequest"><span class="glyphicon glyphicon-off"></span> Send Request </button>
           </form>
         </div>

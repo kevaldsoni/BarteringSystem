@@ -36,5 +36,6 @@
 		<mapping resource="hbm/Account.hbm.xml"/>
 		<mapping resource="hbm/User.hbm.xml"/>
 		<mapping resource="hbm/BarterPost.hbm.xml"/>
+		<mapping resource="hbm/Trade.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

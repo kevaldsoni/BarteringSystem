@@ -1,12 +1,61 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Lets Barter</title>
+
+
+    <!-- Custom CSS -->
+    <link href="/barter/css/barter.css" rel="stylesheet">
+	
+
 </head>
+
 <body>
 
+    <!-- Navigation -->
+    <jsp:include page="/header/header.jsp"></jsp:include>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row" style="padding-top: 20px;">
+
+            <div class="col-md-3">
+                <p class="lead">My Account</p>
+                <div class="list-group">
+                    <a onclick="showMyBarterPosts();" href="javascript:void(0);" class="list-group-item">My Barter Posts</a>
+                    <a onclick="showMyTradeHistory();" href="javascript:void(0);" class="list-group-item">My Trade History</a>
+                    <a onclick="showBarterRequest();" href="javascript:void(0);" class="list-group-item">Barter Trade Requests</a>
+                    <a onclick="editMyPofile();" href="javascript:void(0);" class="list-group-item">Edit Profile</a>
+                   
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="row">
+                <div id="barter_post_results"></div>
+				</div>
+			</div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+	<hr>
+	<jsp:include page="/footer/footer.jsp"></jsp:include>
+    </div>
+
+ <script type="text/javascript" src="/barter/js/myAccount.js"></script> 
 </body>
+
 </html>
