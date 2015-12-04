@@ -18,15 +18,15 @@ import org.hibernate.criterion.Restrictions;
 import beans.AccountPojo;
 import beans.BarterPostPojo;
 import beans.TradePojo;
-import testservletpackage.TestServlet;
+import utils.HibernateConnUtil;
 
 public class TradeUtility {
 	
-	private static Logger log=Logger.getLogger(TestServlet.class.getName());
-	private static SessionFactory factory ;
+	private static Logger log=Logger.getLogger(TradeUtility.class.getName());
+	//private static SessionFactory factory = HibernateConnUtil.getSessionFactory();
 	
 	public TradeUtility(){
-		factory = new Configuration().configure().buildSessionFactory();
+		//factory = new Configuration().configure().buildSessionFactory();
 	}
 	
 	public List<TradePojo> fetchTradeHistory(String email){
@@ -36,7 +36,7 @@ public class TradeUtility {
 		
 		Transaction tx = null;
 		List results = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			
 			log.info("Email obtained in param :: "+email);
@@ -85,7 +85,7 @@ public class TradeUtility {
 		
 		Transaction tx = null;
 		List results = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			
 			log.info("Email obtained in param :: "+email);
@@ -142,7 +142,7 @@ public class TradeUtility {
 		
 		Transaction tx = null;
 		List results = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			
 			log.info("Email obtained in param :: "+email);
@@ -199,7 +199,7 @@ public class TradeUtility {
 		
 		Transaction tx = null;
 		List results = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			
 			log.info("Email obtained in param :: "+email);

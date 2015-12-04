@@ -27,7 +27,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
 
 import beans.BarterPostPojo;
-import testservletpackage.TestServlet;
 import user.BarterPostUtility;
 import user.UserUtility;
 
@@ -43,7 +42,7 @@ public class NewBarterServlet extends HttpServlet {
     private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
     private static final int MAX_REQUEST_SIZE = 1024 * 1024;
     
-    private static Logger log=Logger.getLogger(TestServlet.class.getName());
+    private static Logger log=Logger.getLogger(NewBarterServlet.class.getName());
     
     private BarterPostUtility barterPostObj = new BarterPostUtility();
     private UserUtility userUtility = new UserUtility(); 

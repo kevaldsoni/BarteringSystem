@@ -19,25 +19,33 @@
 </head>
 
 <body>
-	 <%
-
-if(session!=null)
- {
-  session.setAttribute("name", null);
-  session.invalidate();
- }
-
-%>
- 
+	 <%-- <jsp:include page="/header/header.jsp"></jsp:include> --%> 
 	<div class="container">
 	
 		<div class="top">
-			<h1 id="title" class="hidden"><span id="logo">Thank you for visiting <span>Lets Barter</span><br/><span style="font-size:20px;"><a href="/barter/index.jsp" style="color:white;">Visit Homepage</a></span></span></h1>
+			<h1 id="title" class="hidden"><span id="logo">Thank you for visiting <span>Lets Barter</span><br/><span style="font-size:20px;"><a href="/barter/index.jsp" style="color:white;">Visit Homepage</a></span></span></span></h1>
 		</div>
-		 <div class="login-box animated fadeInUp">
-		 <div class="style_social" style="width:350px;float:left;text-align: left;margin-left: 50px;">
-		<h2 style="font-size: 14px;color: #666;font-weight: bolder;">Connect with LetsBarter</h2>
-		<ul class="list-unstyled list-social-icons" style="list-style: none;">
+<!-- 		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" id="username">
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" id="password">
+			<br/>
+			<button type="submit">Sign In</button>
+			<br/>
+			<a href="#"><p class="small">Forgot your password?</p></a>
+		</div>
+ -->	
+ <div class="login-box animated fadeInUp">
+ <div class="style_social" style="width:350px;float:left;text-align: left;margin-left: 50px;">
+<h2 style="font-size: 14px;color: #666;font-weight: bolder;">Connect with LetsBarter</h2>
+<ul class="list-unstyled list-social-icons" style="list-style: none;">
                     <li style="padding: 5px 5px 5px;margin-bottom: 20px;margin-left: -40px;">
                         <a href="#" class="btn btn-facebook" style="padding: 10px 10px 10px 10px;"><i class="fa fa-facebook"></i> | Connect with Facebook</a>
                     </li>
@@ -52,7 +60,7 @@ if(session!=null)
                 </ul>
                 
 </div>
-<!-- <div style="clear: both;"></div> -->
+
             <div class="row">
                 <div class="col-lg-12" >
                     <p style="font-size: 14px;color: #666;font-weight: bolder;">Copyright &copy; Letsbarter.com 2015</p>

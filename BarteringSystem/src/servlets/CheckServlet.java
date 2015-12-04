@@ -16,7 +16,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
 
-import testservletpackage.TestServlet;
+
 
 /**
  * Servlet implementation class CheckServlet
@@ -25,7 +25,7 @@ import testservletpackage.TestServlet;
 @MultipartConfig
 public class CheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log=Logger.getLogger(TestServlet.class.getName());
+	private static Logger log=Logger.getLogger(CheckServlet.class.getName());
        
     /**
      * @see HttpServlet#HttpServlet()

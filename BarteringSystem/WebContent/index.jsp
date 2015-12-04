@@ -37,7 +37,7 @@
     <!-- Header Carousel -->
     
     <header class="main-header" role="banner">
-  <img src="/barter/images/wsj_extremes_bartering_820.jpg" class="img-responsive" alt="Banner Image" style="width: 1200px;height: 250px;"/>
+	<img src="/barter/images/wsj_extremes_bartering_820.jpg" class="img-responsive" alt="Banner Image" style="width: 1100px;height: 250px;margin-left: 120px;"/>
     <!--  <header id="myCarousel" class="carousel slide"> -->
         <!-- Indicators -->
        <!--  <ol class="carousel-indicators">

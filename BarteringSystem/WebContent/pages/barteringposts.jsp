@@ -31,12 +31,12 @@
             <div class="col-md-3">
                 <p class="lead">Browse Categories</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Food Products</a>
-                    <a href="#" class="list-group-item">Automotive</a>
-                    <a href="#" class="list-group-item">Clothes</a>
-                    <a href="#" class="list-group-item">Furniture</a>
-                    <a href="#" class="list-group-item">Services</a>
-                    <a href="#" class="list-group-item">Electronics</a>
+                    <a onclick="fetchBarteringPosts(1);" href="javascript:void(0);" class="list-group-item">Food Products</a>
+                    <a onclick="fetchBarteringPosts(2);" href="javascript:void(0);" class="list-group-item">Automotive</a>
+                    <a onclick="fetchBarteringPosts(3);" href="javascript:void(0);" class="list-group-item">Clothes</a>
+                    <a onclick="fetchBarteringPosts(4);" href="javascript:void(0);" class="list-group-item">Furniture</a>
+                    <a onclick="fetchBarteringPosts(5);" href="javascript:void(0);" class="list-group-item">Services</a>
+                    <a onclick="fetchBarteringPosts(6);" href="javascript:void(0);" class="list-group-item">Electronics</a>
                 </div>
             </div>
 

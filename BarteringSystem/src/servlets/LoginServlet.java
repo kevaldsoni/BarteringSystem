@@ -18,8 +18,7 @@ import org.hibernate.Session;
 
 import beans.AccountPojo;
 import beans.UserPojo;
-import test.TestBean;
-import testservletpackage.TestServlet;
+
 import user.UserUtility;
 import utils.Crypto;
 
@@ -32,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	
 	
 	
-	private static Logger log=Logger.getLogger(TestServlet.class.getName());
+	private static Logger log=Logger.getLogger(LoginServlet.class.getName());
 	
 	UserUtility util = new UserUtility();
        

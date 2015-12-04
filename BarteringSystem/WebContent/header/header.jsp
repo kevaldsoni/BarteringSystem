@@ -56,22 +56,22 @@
                                 <a href="/barter/pages/barteringposts.jsp">All Barter Posts</a>
                             </li>
                             <li>
-                                <a href="portfolio-1-col.html">Food Products</a>
+                                <a href="/barter/pages/barteringposts.jsp">Food Products</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">Automotive</a>
+                                <a href="/barter/pages/barteringposts.jsp">Automotive</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">Clothes</a>
+                                <a href="/barter/pages/barteringposts.jsp">Clothes</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">Furniture</a>
+                                <a href="/barter/pages/barteringposts.jsp">Furniture</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">Services</a>
+                                <a href="/barter/pages/barteringposts.jsp">Services</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">Electronics</a>
+                                <a href="/barter/pages/barteringposts.jsp">Electronics</a>
                             </li>
                             
                         </ul>

@@ -20,22 +20,23 @@ import beans.AccountPojo;
 import beans.BarterPostPojo;
 import beans.TradePojo;
 import beans.UserPojo;
-import testservletpackage.TestServlet;
+import utils.HibernateConnUtil;
+
 
 public class BarterPostUtility {
 	
-	private static Logger log=Logger.getLogger(TestServlet.class.getName());
-	private static SessionFactory factory ;
+	private static Logger log=Logger.getLogger(BarterPostUtility.class.getName());
+	//private static SessionFactory factory = HibernateConnUtil.getSessionFactory();
 	
 	public BarterPostUtility(){
-		factory = new Configuration().configure().buildSessionFactory();
+		//factory = new Configuration().configure().buildSessionFactory();
 	}
 	
 	
 	public int addNewBarterPost(BarterPostPojo barterPostObj){
 		int reqId = 0;
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			
@@ -66,7 +67,7 @@ public class BarterPostUtility {
 		int userId = 0;
 		int catId = 0;
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			
 			tx=session.beginTransaction();
@@ -83,7 +84,18 @@ public class BarterPostUtility {
 					log.info("No Barter Post Found");
 				}
 			}else{
-				
+				int value = Integer.parseInt(category);
+				cr.add(Restrictions.eq("offeringCatId", value));
+				List results = cr.list();
+				if(results!=null && results.size()>0){
+					for (Iterator iterator = results.iterator(); iterator.hasNext();){
+						BarterPostPojo pobj = (BarterPostPojo) iterator.next(); 
+						log.info("Barter Post ID :: "+pobj.getReqId());
+						barterList.add(pobj);
+					}
+				}else{
+					log.info("No Barter Post Found");
+				}
 			}
 			/*Finding Total Pages for Pagination*/
 			int maxResultsPerPage = 9;
@@ -109,7 +121,7 @@ public class BarterPostUtility {
 		int catId = 0;
 		Transaction tx = null;
 		List results = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			
 			log.info("Email obtained in param :: "+email);
@@ -127,7 +139,8 @@ public class BarterPostUtility {
 				
 				
 				Criterion usercheck = Restrictions.ne("userId", userId);
-				Criterion categorycheck = Restrictions.eq("offeringCatId", category);
+				int value = Integer.parseInt(category);
+				Criterion categorycheck = Restrictions.eq("offeringCatId", value);
 				LogicalExpression andExp = Restrictions.and(usercheck, categorycheck);
 				cr.add( andExp );
 				results = cr.list();
@@ -172,7 +185,7 @@ public class BarterPostUtility {
 	int catId = 0;
 	Transaction tx = null;
 	List results = null;
-	Session session = factory.openSession();
+	Session session = HibernateConnUtil.getSessionFactory().openSession();
 	try{
 		
 		log.info("Email obtained in param :: "+email);
@@ -218,7 +231,7 @@ public class BarterPostUtility {
 		int userId=0;
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(BarterPostPojo.class);
@@ -275,7 +288,7 @@ public class BarterPostUtility {
 		Date date = new Date();
 		obj.setTradeStatusTime(date);
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			tradeId = (Integer)session.save(obj);

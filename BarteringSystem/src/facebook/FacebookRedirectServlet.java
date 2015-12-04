@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-import testservletpackage.TestServlet;
+
 
 /**
  * Servlet implementation class FacebookRedirectServlet
@@ -22,7 +22,7 @@ import testservletpackage.TestServlet;
 public class FacebookRedirectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
-	private static Logger log=Logger.getLogger(TestServlet.class.getName());
+	private static Logger log=Logger.getLogger(FacebookRedirectServlet.class.getName());
     /**
      * @see HttpServlet#HttpServlet()
      */

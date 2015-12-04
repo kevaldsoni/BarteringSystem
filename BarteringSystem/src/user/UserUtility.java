@@ -16,23 +16,23 @@ import org.hibernate.criterion.Restrictions;
 
 import beans.AccountPojo;
 import beans.UserPojo;
-import test.TestingPojo;
-import testservletpackage.TestServlet;
+import utils.HibernateConnUtil;
+
 
 public class UserUtility {
 
-	private static Logger log=Logger.getLogger(TestServlet.class.getName());
-	private static SessionFactory factory ;
+	private static Logger log=Logger.getLogger(UserUtility.class.getName());
+	//private static SessionFactory factory = HibernateConnUtil.getSessionFactory();
 	
 	public UserUtility(){
-		factory = new Configuration().configure().buildSessionFactory();
+		//factory = new Configuration().configure().buildSessionFactory();
 	}
 	
 	public boolean validateUser(String email , String password){
 		boolean userAuthenticated = false;
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(AccountPojo.class);
@@ -68,7 +68,7 @@ public class UserUtility {
 		String name=null;
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(UserPojo.class);
@@ -102,7 +102,7 @@ public class UserUtility {
 		String name=null;
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(UserPojo.class);
@@ -138,7 +138,7 @@ public class UserUtility {
 		String contact=null;
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(UserPojo.class);
@@ -172,7 +172,7 @@ public class UserUtility {
 		int userId=0;
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(UserPojo.class);
@@ -206,7 +206,7 @@ public class UserUtility {
 		int userRating=0;
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(UserPojo.class);
@@ -239,7 +239,7 @@ public class UserUtility {
 	public int addNewUser(UserPojo userObj){
 		int  userId = 0;
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			userId = (Integer)session.save(userObj);			
@@ -264,7 +264,7 @@ public class UserUtility {
 	public boolean addNewUserDetailsToAccount(AccountPojo account){
 		boolean result = false;
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			
@@ -293,7 +293,7 @@ public class UserUtility {
 		UserPojo obj = new UserPojo();
 		
 		Transaction tx = null;
-		Session session = factory.openSession();
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
 			tx=session.beginTransaction();
 			Criteria cr = session.createCriteria(UserPojo.class);

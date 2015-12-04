@@ -48,7 +48,7 @@
 								if(message!=null && message.length()>0){
 								%>
 								<div class="alert alert-success">
-  									<%=message%>
+  									<b><%=message%> !!</b>
 								</div>
 							   <%
 								}
