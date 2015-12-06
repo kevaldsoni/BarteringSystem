@@ -39,7 +39,7 @@
 	%>
 <div class="table-responsive">
  <h4>Barter Request Received</h4>          
-  <table class="table">
+  <table class="table" id="requestReceived">
     <thead>
       <tr>
       	<th>Trade #</th>
@@ -94,7 +94,7 @@
         </td>
         
         <td>
-        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Approve Request</button>
+        <a id="approveRequest" class="btn btn-info" onclick="approveTradeRequest('<%=trade.getTradeId()%>','approveRequest');" href="javascript:void(0);"><i class="icon-hand-right"></i>Approve Request</a>
         </td>
       </tr>
        <%
@@ -166,7 +166,7 @@
    <!--  Trade Approved Table -->
   <div class="table-responsive">  
   <h4>Barter Request Approved</h4>        
-   <table class="table">
+   <table class="table" id="barterRequestApproved">
     <thead>
       <tr>
       	<th>Trade #</th>
@@ -218,7 +218,7 @@
         %>
         <td><%=contact %></td>
        <td>
-        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Barter Completed</button>
+        <a type="submit" class="btn btn-info" onclick="approveTradeRequest('<%=trade.getTradeId()%>','completeBarter');" href="javascript:void(0);"><i class="icon-hand-right"></i>Barter Completed</a>
         </td>
       </tr>
        <%

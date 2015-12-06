@@ -65,7 +65,7 @@
                 <p><i class="fa fa-phone"></i> 
                     <abbr title="Phone">P</abbr>: (123) 456-7890</p>
                 <p><i class="fa fa-envelope-o"></i> 
-                    <abbr title="Email">E</abbr>: <a href="mailto:name@example.com">name@example.com</a>
+                    <abbr title="Email">E</abbr>: <a href="mailto:customercare@letsbarter.com">customercare@letsbarter.com</a>
                 </p>
                 <p><i class="fa fa-clock-o"></i> 
                     <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM</p>
@@ -76,10 +76,7 @@
                     <li>
                         <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
-                    </li>
-                    <li>
+                   	<li>
                         <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
                     </li>
                 </ul>

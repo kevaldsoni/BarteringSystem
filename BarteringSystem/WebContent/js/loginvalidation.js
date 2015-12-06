@@ -42,18 +42,18 @@ $(document).ready(function() {
         	password: {
                 validators: {
                     notEmpty: {
-                        message: 'The full name is required and cannot be empty'
+                        message: 'Password is required and cannot be empty'
                     },
                     stringLength: {
                         enabled: true,
                         min: 8,
                         max: 40,
-                        message: 'The full name must be more than 8 and less than 40 characters long'
+                        message: 'Password must conform to password policy'
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^[a-zA-Z\s]+$/,
-                        message: 'The full name can only consist of alphabetical, number, and space'
+                        regexp: /^[a-zA-Z0-9\s]+$/,
+                        message: 'Password must conform to password policy'
                     }
                 }
             }

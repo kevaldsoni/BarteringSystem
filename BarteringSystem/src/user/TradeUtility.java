@@ -248,4 +248,31 @@ public class TradeUtility {
 		
 		
 	}
+	
+	public void approveBarterRequest(String tradeId,String action){
+		log.info("approveBarterRequest :: "+tradeId+" Action :: "+action);
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
+		Transaction tx = null;
+		int tradeNo = Integer.parseInt(tradeId);
+		try{
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(TradePojo.class);
+			cr.add(Restrictions.eq("tradeId", tradeNo));
+			List<TradePojo> record = cr.list();
+			
+			for (TradePojo obj : record){
+				if("approveRequest".equalsIgnoreCase(action))
+				obj.setRequestStatus("Request-Approved");
+				else if("completeBarter".equalsIgnoreCase(action))
+				obj.setRequestStatus("Barter-Finalised");
+				session.update(obj);
+			}
+			tx.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+	}
 }
