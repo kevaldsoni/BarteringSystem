@@ -45,7 +45,8 @@ public class TradeUtility {
 			Criteria cr = session.createCriteria(TradePojo.class);
 			UserUtility utilObj = new UserUtility();
 			userId = utilObj.fetchUserIdFromEmail(email);
-			Criterion usercheck = Restrictions.eq("primaryTraderUserId", userId);
+			//Criterion usercheck = Restrictions.eq("primaryTraderUserId", userId);
+			Criterion usercheck = Restrictions.or(Restrictions.eq("secTraderUserId", userId),Restrictions.eq("primaryTraderUserId", userId));
 			Criterion statuscheck = Restrictions.or(Restrictions.eq("requestStatus", "Barter-Finalised"),Restrictions.eq("requestStatus", "Trade-Complete"));
 			LogicalExpression andExp = Restrictions.and(usercheck, statuscheck);
 			cr.add( andExp );

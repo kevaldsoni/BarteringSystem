@@ -63,15 +63,15 @@
         %>
         <td><%=name %></td>
         <td>
-        <% if("Trade-Complete".equalsIgnoreCase(trade.getRequestStatus())){ %>	
-       		<select class="form-control" name="rateUser">
+        <% if("Barter-Finalised".equalsIgnoreCase(trade.getRequestStatus())){ %>	
+       		<select class="form-control input-small" name="rateUser">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
 				<option value="5">5</option>
 			</select>
-       
+            <a id="rateUser" class="btn btn-info" onclick="rateUser(<%=trade.getTradeId()%>);" href="javascript:void(0);"><i class="icon-hand-right"></i>Rate User</a>
        <%
        }else{
     	   %>

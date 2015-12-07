@@ -20,13 +20,19 @@
 
 <body>
 	 <%
-
+	   
+	
 if(session!=null)
- {
-  session.setAttribute("name", null);
-  session.invalidate();
+ {	
+	session.setAttribute("name", null);
+	request.getSession().invalidate();
+    
+  
  }
-
+	 response.setHeader("Cache-Control","no-cache"); //HTTP 1.1 
+	 response.setHeader("Pragma","no-cache"); //HTTP 1.0 
+	 response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
+	 response.setHeader("Cache-Control","no-store");
 %>
  
 	<div class="container">
@@ -70,7 +76,14 @@ if(session!=null)
 	$(document).ready(function () {
     	$('#logo').addClass('animated fadeInDown');
     	$("input:text:visible:first").focus();
+        var Backlen=history.length;   
+	    history.go(-Backlen);   
+	
 	});
+	 
+	  
+	 
+	
 /* 	$('#username').focus(function() {
 		$('label[for="username"]').addClass('selected');
 	});

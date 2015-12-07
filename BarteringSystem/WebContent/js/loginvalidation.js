@@ -230,8 +230,8 @@ zipcode: {
                     },
                     regexp: {
                         enabled: true,
-                        regexp: /^[a-zA-Z0-9\s]+$/,
-                        message: 'The password can only consist of alphabetical, number, and space'
+                        regexp: /^[a-zA-Z0-9]+$/,
+                        message: 'The password can only consist of Alphabets and Numbers'
                     },
                     
                 }
@@ -250,7 +250,7 @@ zipcode: {
                     regexp: {
                         enabled: true,
                         regexp: /^[a-zA-Z0-9\s]+$/,
-                        message: 'The password can only consist of alphabetical, number, and space'
+                        message: 'The password can only consist of Alphabets and Numbers'
                     },
                     identical:{
                     	field: 'passwd',

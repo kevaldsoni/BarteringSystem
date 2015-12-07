@@ -19,5 +19,8 @@
       <property name="primaryTraderUserId" column="primary_trader_user_id" type="int"/>
       <property name="secTraderUserId" column="sec_trader_user_id" type="int"/>
       <property name="tradeStatusTime" column="trade_status_time" type="timestamp"/>
+      <property name="tradePrimRate" column="trade_prim_rate" type="int"/>
+      <property name="tradeSecRate" column="trade_sec_rate" type="int"/>
+       
    </class>
 </hibernate-mapping>

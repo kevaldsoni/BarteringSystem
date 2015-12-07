@@ -177,6 +177,7 @@
                                     <div class="col-md-9">
                                         <input type="password" class="form-control" name="passwd" placeholder="Password">
                                     </div>
+                                    
                                 </div>
                                 
                                 <div class="form-group">

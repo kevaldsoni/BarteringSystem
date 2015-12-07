@@ -38,6 +38,29 @@ function approveTradeRequest(tradeId,tradeType){
 }
 
 
+function rateUser(tradeId,tradeType){
+	alert("rating");
+	
+	 $.ajax({
+	   		type 	 : "POST",
+	   		url 	 : "/barter/ajax/rateUser.jsp",
+	   		data     : "tradeId="+tradeId,
+	   		cache 	 : false,
+	   		async    : false,
+	   		complete : function(html){
+	   			var response = html.responseText;
+	   			response = response.replace(/^\s+|\s+$/g,'');
+	   			if(response!=null && response != ''){
+	   				document.getElementById("barter_post_results").innerHTML = response;
+	   			}
+	   			
+	   		}
+	 });
+	 
+	 
+}
+
+
 
 
 function showMyBarterPosts(){

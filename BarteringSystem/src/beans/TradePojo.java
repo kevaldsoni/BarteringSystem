@@ -20,6 +20,26 @@ public class TradePojo {
 	
 	private int secTraderUserId;
 	
+	private int tradePrimRate;
+	
+	private int tradeSecRate;
+	
+	public int getTradePrimRate() {
+		return tradePrimRate;
+	}
+
+	public void setTradePrimRate(int tradePrimRate) {
+		this.tradePrimRate = tradePrimRate;
+	}
+
+	public int getTradeSecRate() {
+		return tradeSecRate;
+	}
+
+	public void setTradeSecRate(int tradeSecRate) {
+		this.tradeSecRate = tradeSecRate;
+	}
+
 	public int getSecTraderUserId() {
 		return secTraderUserId;
 	}

@@ -19,9 +19,10 @@
 	}
 	for (BarterPostPojo obj : barterPosts){
 		String imgName=null;
-		if(obj.getItemImage()!=null)
-			imgName = "/barter/uploadeddata/"+obj.getItemImage();
-		else
+		if(obj.getItemImage()!=null){
+			//imgName = "/barter/uploadeddata/"+obj.getItemImage();
+			imgName = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata\\"+obj.getItemImage();
+		}else
 			imgName = "/barter/uploadeddata/noimage.jpg";
 	
 	
