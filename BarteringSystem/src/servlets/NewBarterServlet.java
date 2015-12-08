@@ -41,8 +41,8 @@ import user.UserUtility;
 public class NewBarterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static final String DATA_DIRECTORY = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata";
-	//private static final String DATA_DIRECTORY = "D:\\apache-tomcat-7.0.64\\webapps\\barter\\uploadeddata";
+	//private static final String DATA_DIRECTORY = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata";
+	private static final String DATA_DIRECTORY = "D:\\apache-tomcat-7.0.64\\webapps\\barter\\uploadeddata";
     private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
     private static final int MAX_REQUEST_SIZE = 1024 * 1024;
     
@@ -200,7 +200,7 @@ public class NewBarterServlet extends HttpServlet {
 	public String uploadFile(HttpServletRequest request,HttpServletResponse response){
 		
 		// Create path components to save the file
-	    final String path = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata";
+	   // final String path = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata";
 	    String fileNameInDB = null;
 
 	    OutputStream out = null;
@@ -219,7 +219,7 @@ public class NewBarterServlet extends HttpServlet {
 		    log.info("File to be pushed :: "+fileNameInDB);
 		    log.info("File NAME in upload :: "+fileName);
 		    final PrintWriter writer = response.getWriter();
-		    String dir = path + File.separator + fileName;
+		    String dir = DATA_DIRECTORY + File.separator + fileName;
 		    
 		    
 		   // fileNameInDB = dir;

@@ -48,7 +48,7 @@
 								if(message!=null && message.length()>0){
 								%>
 								<div class="alert alert-success">
-  									<b><%=message%> !!</b>
+  									<b><%=message%> !!</b><a href="/barter/pages/myAccount.jsp"> Click here</a> to View your Barter Post.
 								</div>
 							   <%
 								}

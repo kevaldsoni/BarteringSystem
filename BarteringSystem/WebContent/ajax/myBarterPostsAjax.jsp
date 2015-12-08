@@ -17,11 +17,12 @@
 	}else{
 		System.out.print("User not logged in");
 	}
+	if(barterPosts.size() > 0){
 	for (BarterPostPojo obj : barterPosts){
 		String imgName=null;
 		if(obj.getItemImage()!=null){
 			imgName = "/barter/uploadeddata/"+obj.getItemImage();
-			//imgName = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata\\"+obj.getItemImage();
+			//imgName = "file:///D:/projimages/"+obj.getItemImage();
 		}else
 			imgName = "/barter/uploadeddata/noimage.jpg";
 	
@@ -68,7 +69,10 @@
                
                
        <%
-	}
+	} }else{
        %>
-	
+		<div class="alert alert-info"><b>This is your bartering space. <a href="/barter/pages/newBarterForm.jsp" >Click here</a> to upload your first post ...</b></div>
+	<%
+	}
+	%>
 </div>
