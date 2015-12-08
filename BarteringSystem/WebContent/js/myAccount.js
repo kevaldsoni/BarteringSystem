@@ -5,6 +5,7 @@
 $(document).ready(function(){
 	
 	showMyBarterPosts();
+	$("#updateprofile").bind('click',updateProfile);
 
 })	
 
@@ -145,4 +146,11 @@ function editMyPofile(){
    			
    		}
  });
+}
+
+function updateProfile(){
+	
+	alert("Profile Updated Successfully");
+	return false;
+	
 }

@@ -32,7 +32,7 @@
 
 	  <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <div style="width:250px;height: 120px;">
+                            <div style="width:120px;height: 100px;">
                             <img src="<%=imgName%>">
                             </div>
                             <div class="caption">

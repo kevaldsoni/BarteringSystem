@@ -163,7 +163,7 @@ if(request.getSession().getAttribute("email")!=null){
                                 <div class="form-group">
                                     <!-- Button -->                                        
                                     <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Update Profile</button>
+                                        <button id="updateprofile" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Update Profile</button>
                                          
                                     </div>
                                 </div>

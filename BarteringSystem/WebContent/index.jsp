@@ -131,35 +131,35 @@
             </div>
         <div class="row">
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="images/1.catg_jewelery.jpg"  alt="" height="700" width="450">
+                <a href="/barter/pages/barteringposts.jsp">
+                    <img class="img-responsive img-portfolio img-hover" src="images/food_products.png"  alt="" height="700" width="450">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="images/2.catg_appliance.jpg" alt="" height="700" width="450">
+                <a href="/barter/pages/barteringposts.jsp">
+                    <img class="img-responsive img-portfolio img-hover" src="images/automotive.png" alt="" height="700" width="450">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="images/3.catg_clothes.jpg" alt="" height="700" width="450">
+                <a href="/barter/pages/barteringposts.jsp">
+                    <img class="img-responsive img-portfolio img-hover" src="images/clothes.png" alt="" height="700" width="450">
                 </a>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="images/4.catg_furniture.jpg" alt="" height="700" width="450">
+                <a href="/barter/pages/barteringposts.jsp">
+                    <img class="img-responsive img-portfolio img-hover" src="images/furniture.png" alt="" height="700" width="450">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="images/5.catg_collectables.jpg" alt="" height="700" width="450">
+                <a href="/barter/pages/barteringposts.jsp">
+                    <img class="img-responsive img-portfolio img-hover" src="images/services.png" alt="" height="700" width="450">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="images/6.catg_tech.jpg" alt="" height="700" width="450">
+                <a href="/barter/pages/barteringposts.jsp">
+                    <img class="img-responsive img-portfolio img-hover" src="images/electronics.png" alt="" height="700" width="450">
                 </a>
             </div>
         </div>

@@ -65,7 +65,7 @@ th {
     </thead>
     <tbody>
       <%
-      if(myTradeHistory.size()>0){
+      if(barterCompletedTrades.size()>0){
       for (TradePojo trade : barterCompletedTrades){
       
       %>
@@ -185,7 +185,7 @@ th {
     </thead>
     <tbody>
       <%
-      if(myTradeHistory.size()>0){
+      if(completedTrades.size()>0){
       for (TradePojo trade : completedTrades){
       
       %>

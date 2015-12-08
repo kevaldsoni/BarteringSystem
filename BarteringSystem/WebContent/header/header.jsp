@@ -55,6 +55,18 @@ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+       				 
+                        <% 
+              				if(session.getAttribute("name")!=null){
+								String email = (String)session.getAttribute("email");
+								String name = (String)session.getAttribute("name");
+						%>
+							<li>
+                        	<a href="/barter/pages/newBarterForm.jsp">New Barter</a>
+                    	</li>
+						<%
+							}
+						%>
        				
     				<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
