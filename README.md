@@ -1,5 +1,6 @@
 # BarteringSystem
 version 1.0
+
 Bartering is a system of exchange of goods or services for other goods or services without using money. Motivation of doing this project is to work towards a solution for Sustainable Engineering. Sustainable engineering refers to the integration of social, environmental, and economic considerations into product, process and energy system design methods.
 
 As a part of solution, a Web Application named Lets Barter is developed. 
