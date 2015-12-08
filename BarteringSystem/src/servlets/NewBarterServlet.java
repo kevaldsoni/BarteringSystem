@@ -1,12 +1,14 @@
 package servlets;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.sql.Blob;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -25,6 +27,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 
 import beans.BarterPostPojo;
 import user.BarterPostUtility;
@@ -39,6 +42,7 @@ public class NewBarterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static final String DATA_DIRECTORY = "D:\\EclipseWorkspace\\BarteringSystem\\WebContent\\uploadeddata";
+	//private static final String DATA_DIRECTORY = "D:\\apache-tomcat-7.0.64\\webapps\\barter\\uploadeddata";
     private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
     private static final int MAX_REQUEST_SIZE = 1024 * 1024;
     
@@ -90,7 +94,11 @@ public class NewBarterServlet extends HttpServlet {
 		
 		NewBarterServlet ser = new NewBarterServlet();
 		
+		try {
+	        
+		
 		String imageName=ser.uploadFile(request,response);
+		
 		String title=request.getParameter("title");
 		String offeringProductCategory=request.getParameter("offeringProductCategory");
 		String myOffer=request.getParameter("myOffer");
@@ -111,6 +119,7 @@ public class NewBarterServlet extends HttpServlet {
 		barterPostPojo.setTradeContact(contactDetail);
 		barterPostPojo.setItemImage(imageName);
 		String emailLoggedIn = (String)request.getSession().getAttribute("email");
+		
 		if(emailLoggedIn!=null && emailLoggedIn.length()>0){
 			log.info("Email ::"+emailLoggedIn);
 			int id = getUserUtility().fetchUserIdFromEmail(emailLoggedIn);
@@ -119,12 +128,12 @@ public class NewBarterServlet extends HttpServlet {
 		else
 			log.info("email not found in session");
 		
+		// Code to upload image
 		
-		
-        try {
-           
-        	
-            int requestId = 0 ;
+		// byte[] photoBytes = readBytesFromFile("D:\\apache-tomcat-7.0.64\\webapps\\barter\\uploadeddata\\"+imageName);
+		// barterPostPojo.setUploadedimg(photoBytes);
+        
+			int requestId = 0 ;
     		if(barterPostPojo!=null)
     			requestId = getBarterPostObj().addNewBarterPost(barterPostPojo);
     		
@@ -211,7 +220,10 @@ public class NewBarterServlet extends HttpServlet {
 		    log.info("File NAME in upload :: "+fileName);
 		    final PrintWriter writer = response.getWriter();
 		    String dir = path + File.separator + fileName;
-	  
+		    
+		    
+		   // fileNameInDB = dir;
+		    
 	        out = new FileOutputStream(new File(dir));
 	        filecontent = filePart.getInputStream();
 
@@ -245,7 +257,15 @@ public class NewBarterServlet extends HttpServlet {
 	    return null;
 	}
 		
-		
-	
+	 private static byte[] readBytesFromFile(String filePath) throws IOException {
+	        File inputFile = new File(filePath);
+	        FileInputStream inputStream = new FileInputStream(inputFile);
+	         
+	        byte[] fileBytes = new byte[(int) inputFile.length()];
+	        inputStream.read(fileBytes);
+	        inputStream.close();
+	         
+	        return fileBytes;
+	    }
 
 }

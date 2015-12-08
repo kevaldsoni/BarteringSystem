@@ -4,7 +4,7 @@
 
 $(document).ready(function(){
 	
-	//$("#approveRequest").bind('blur',approveRequest);	
+	showMyBarterPosts();
 
 })	
 
@@ -29,22 +29,23 @@ function approveTradeRequest(tradeId,tradeType){
 	 });
 	 showBarterRequest();
 	 if("approveRequest"==tradeType){
-		 $('<div class="alert alert-success"><b>Request Approved !! Check Approved Request Section.</b></div>').insertBefore('#requestReceived').delay(3000).fadeOut();
+		 $('<div class="alert alert-success"><b>Request Approved !! Check Approved Request Section.</b></div>').insertBefore('#requestReceived').delay(2500).fadeOut();
 	 }
 		 
 		 
 	 if("completeBarter"==tradeType)
-	 $('<div class="alert alert-success"><b>Barter Finalised !! Check Trade History Section.</b></div>').insertBefore('#barterRequestApproved').delay(3000).fadeOut();
+	 $('<div class="alert alert-success"><b>Barter Finalised !! Check Trade History Section.</b></div>').insertBefore('#barterRequestApproved').delay(2500).fadeOut();
 }
 
 
-function rateUser(tradeId,tradeType){
-	alert("rating");
+function rateUser(tradeId){
+	
+	var rating = $("#rating").val();
 	
 	 $.ajax({
 	   		type 	 : "POST",
 	   		url 	 : "/barter/ajax/rateUser.jsp",
-	   		data     : "tradeId="+tradeId,
+	   		data     : "tradeId="+tradeId+"&rating="+rating,
 	   		cache 	 : false,
 	   		async    : false,
 	   		complete : function(html){
@@ -56,6 +57,8 @@ function rateUser(tradeId,tradeType){
 	   			
 	   		}
 	 });
+	 showMyTradeHistory();
+	 $('<div class="alert alert-success"><b>Rating updated. Hope you had great barter trade !!</b></div>').insertBefore('#barterComplete').delay(2500).fadeOut();
 	 
 	 
 }
@@ -80,7 +83,9 @@ function showMyBarterPosts(){
 	   			}
 	   			
 	   		}
+	 
 	 });
+	 
 }
 
 function showMyTradeHistory(){

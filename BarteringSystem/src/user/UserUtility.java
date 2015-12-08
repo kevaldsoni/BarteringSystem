@@ -323,4 +323,42 @@ public class UserUtility {
 		return obj;
 		
 	}
+	
+	public void updateFinalUserRating(int userId,int rating){
+		log.info("Updating Final User Rating");
+		
+		Transaction tx = null;
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
+		try{
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(UserPojo.class);
+			cr.add(Restrictions.eq("userId", userId));
+			List results = cr.list();
+			
+			if(results!=null && results.size()>0){
+				
+				for (Iterator iterator = results.iterator(); iterator.hasNext();){
+					UserPojo pobj = (UserPojo) iterator.next();
+					int oldRating = pobj.getUserRating();
+					double tempRating = Math.ceil((rating+oldRating)/2);
+					int newRating = (int)tempRating;
+					pobj.setUserRating(newRating);
+					session.update(pobj);
+				}
+			}else{
+				log.info("updateFinalUserRating :: Result not  found");
+			}
+			tx.commit();
+			
+		}catch(HibernateException e){
+			if(tx!=null)
+				tx.rollback();
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		
+		
+		
+	}
 }

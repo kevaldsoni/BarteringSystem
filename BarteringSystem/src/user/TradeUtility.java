@@ -1,6 +1,7 @@
 package user;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class TradeUtility {
 			if(results!=null && results.size()>0){
 					for (Iterator iterator = results.iterator(); iterator.hasNext();){
 						TradePojo pobj = (TradePojo) iterator.next(); 
-						log.info("Trade id ::"+pobj.getTradeId());
+						
 						tradeList.add(pobj);
 					}
 			}else{
@@ -114,7 +115,7 @@ public class TradeUtility {
 			if(results!=null && results.size()>0){
 					for (Iterator iterator = results.iterator(); iterator.hasNext();){
 						TradePojo pobj = (TradePojo) iterator.next(); 
-						log.info("Trade id ::"+pobj.getTradeId());
+						
 						tradeList.add(pobj);
 					}
 			}else{
@@ -171,7 +172,7 @@ public class TradeUtility {
 			if(results!=null && results.size()>0){
 					for (Iterator iterator = results.iterator(); iterator.hasNext();){
 						TradePojo pobj = (TradePojo) iterator.next(); 
-						log.info("Trade id ::"+pobj.getTradeId());
+						//log.info("Trade id ::"+pobj.getTradeId());
 						tradeList.add(pobj);
 					}
 			}else{
@@ -228,7 +229,7 @@ public class TradeUtility {
 			if(results!=null && results.size()>0){
 					for (Iterator iterator = results.iterator(); iterator.hasNext();){
 						TradePojo pobj = (TradePojo) iterator.next(); 
-						log.info("Trade id ::"+pobj.getTradeId());
+						//log.info("Trade id ::"+pobj.getTradeId());
 						tradeList.add(pobj);
 					}
 			}else{
@@ -266,6 +267,9 @@ public class TradeUtility {
 				obj.setRequestStatus("Request-Approved");
 				else if("completeBarter".equalsIgnoreCase(action))
 				obj.setRequestStatus("Barter-Finalised");
+				
+				Date date = new Date();
+				obj.setTradeStatusTime(date);
 				session.update(obj);
 			}
 			tx.commit();
@@ -276,4 +280,111 @@ public class TradeUtility {
 		}
 		
 	}
+	
+	public void updateUserRating(String email,String tradeId,String rating){
+		log.info("Rating user :: "+email+" trade :: "+tradeId+" rating:: "+rating);
+		UserUtility utilObj = new UserUtility();
+		int userId = utilObj.fetchUserIdFromEmail(email);
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
+		Transaction tx = null;
+		int tradeNo = Integer.parseInt(tradeId);
+		int ratingValue = Integer.parseInt(rating);
+		UserUtility util = new UserUtility();
+		try{
+			tx=session.beginTransaction();
+			Criteria cr = session.createCriteria(TradePojo.class);
+			cr.add(Restrictions.eq("tradeId", tradeNo));
+			List<TradePojo> record = cr.list();
+			TradeUtility trade = new TradeUtility();
+			String userType =  trade.loggedInType(tradeNo, userId);
+			log.info("User Type :: "+userType);
+			for (TradePojo obj : record){
+				if("PRIMARY".equalsIgnoreCase(userType))
+					obj.setTradePrimRate(ratingValue);
+				else
+					obj.setTradeSecRate(ratingValue);
+			    if(obj.getTradePrimRate() > 0 && obj.getTradeSecRate() > 0){
+			    	obj.setRequestStatus("Trade-Complete");
+			    }
+			    Date date = new Date();
+				obj.setTradeStatusTime(date);
+				session.update(obj);
+				tx.commit();
+				util.updateFinalUserRating(userId, ratingValue);
+			}
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+	}
+	
+	
+	
+	public String loggedInType (int tradeId,int userId){
+		String partnerType = null;
+		
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
+		Transaction tx = null;
+		
+		try{
+			
+			Criteria cr = session.createCriteria(TradePojo.class);
+			cr.add(Restrictions.eq("tradeId", tradeId));
+			List<TradePojo> record = cr.list();
+			
+			for (TradePojo obj : record){
+				if(userId==obj.getPrimaryTraderUserId())
+					partnerType = "PRIMARY";
+				else
+					partnerType = "SECONDARY";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return partnerType;
+	}
+	
+	public boolean showRatingOption(int tradeId,int userId){
+		log.info("Show Rating option ::"+tradeId+" "+userId);
+		boolean showRating = false;
+		Session session = HibernateConnUtil.getSessionFactory().openSession();
+		Transaction tx = null;
+		
+		TradeUtility trade = new TradeUtility();
+		int rate = 0;
+		try{
+			
+			Criteria cr = session.createCriteria(TradePojo.class);
+			cr.add(Restrictions.eq("tradeId", tradeId));
+			List<TradePojo> record = cr.list();
+			
+			String userType =  trade.loggedInType(tradeId, userId);
+			log.info("User type :: "+userType);
+			for (TradePojo obj : record){
+				if("PRIMARY".equalsIgnoreCase(userType))
+					rate = obj.getTradePrimRate();
+				else
+					rate = obj.getTradeSecRate();
+				log.info("Rating ::"+rate);
+				if(rate == 0)
+					showRating = true; 
+					
+				
+			}
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return showRating;
+	}
+
 }

@@ -7,6 +7,24 @@
 <%@page import="java.util.Date" %>
 <%@page import="java.text.DateFormat" %>
 <%@page import="java.text.SimpleDateFormat" %>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
 <%
 	BarterPostUtility utilObj = new BarterPostUtility();
 	UserUtility userObj = new  UserUtility();
@@ -54,7 +72,7 @@
     </thead>
     <tbody>
       <%
-      
+      if(tradeRequestReceived.size() > 0){
       for (TradePojo trade : tradeRequestReceived){
       
       %>
@@ -100,9 +118,19 @@
        <%
         
         }
+      }else{
         
         %>
+        <tr>
+        <td colspan="8">
+        <div class="alert alert-info">
+  		No records found
+		</div>
+        
+        </td>
+        <tr>
       
+      <% } %>
     </tbody>
   </table>
   </div>
@@ -124,7 +152,7 @@
     </thead>
     <tbody>
       <%
-      
+      if(tradeRequestReceived.size() > 0){
       for (TradePojo trade : tradeRequestSent){
       
       %>
@@ -157,9 +185,19 @@
        <%
         
         }
+      }else{
         
         %>
+        <tr>
+        <td colspan="8">
+        <div class="alert alert-info">
+  		No records found
+		</div>
+        
+        </td>
+        <tr>
       
+      <% } %>
     </tbody>
   </table>
   
@@ -181,7 +219,7 @@
     </thead>
     <tbody>
       <%
-      
+      if(tradeRequestApproved.size()>0){
       for (TradePojo trade : tradeRequestApproved){
       
       %>
@@ -221,11 +259,22 @@
         <a type="submit" class="btn btn-info" onclick="approveTradeRequest('<%=trade.getTradeId()%>','completeBarter');" href="javascript:void(0);"><i class="icon-hand-right"></i>Barter Completed</a>
         </td>
       </tr>
-       <%
+      <%
         
         }
+      }else{
         
         %>
+        <tr>
+        <td colspan="8">
+        <div class="alert alert-info">
+  		No records found
+		</div>
+        
+        </td>
+        <tr>
+      
+      <% } %>
       
     </tbody>
   </table>

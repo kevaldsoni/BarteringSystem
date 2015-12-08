@@ -1,5 +1,8 @@
 package user;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -7,6 +10,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -34,11 +38,19 @@ public class BarterPostUtility {
 	
 	
 	public int addNewBarterPost(BarterPostPojo barterPostObj){
+		//log.info("Save image from path :: "+imagePath);
 		int reqId = 0;
 		Transaction tx = null;
 		Session session = HibernateConnUtil.getSessionFactory().openSession();
 		try{
-			tx=session.beginTransaction();
+			
+			/**File file = new File(imagePath);
+	        FileInputStream inputStream = new FileInputStream(file);
+	        Blob blob = Hibernate.getLobCreator(session)
+	                            .createBlob(inputStream, file.length());
+	        barterPostObj.setUploadedimg(blob);
+			blob.free();
+			*/tx=session.beginTransaction();
 			
 			reqId = (Integer)session.save(barterPostObj);			
 			if(reqId > 0){
@@ -52,7 +64,12 @@ public class BarterPostUtility {
 			if(tx!=null)
 				tx.rollback();
 			e.printStackTrace();
-		}finally{
+		}catch(Exception e){
+			if(tx!=null)
+				tx.rollback();
+			e.printStackTrace();
+		}
+		finally{
 			session.close();
 		}
 		

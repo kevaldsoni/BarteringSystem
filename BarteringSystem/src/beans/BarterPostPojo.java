@@ -1,17 +1,11 @@
 package beans;
 
+import java.sql.Blob;
+
 public class BarterPostPojo {
 	
 	private int reqId;
 	
-	public int getReqId() {
-		return reqId;
-	}
-
-	public void setReqId(int reqId) {
-		this.reqId = reqId;
-	}
-
 	private String title;
 	
 	private int offeringCatId;
@@ -27,6 +21,25 @@ public class BarterPostPojo {
 	private String tradeContact;
 	
 	private int userId;
+	
+	private byte[] uploadedimg;
+
+
+	public byte[] getUploadedimg() {
+		return uploadedimg;
+	}
+
+	public void setUploadedimg(byte[] uploadedimg) {
+		this.uploadedimg = uploadedimg;
+	}
+
+	public int getReqId() {
+		return reqId;
+	}
+
+	public void setReqId(int reqId) {
+		this.reqId = reqId;
+	}
 
 
 	public String getTitle() {
