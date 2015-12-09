@@ -152,7 +152,7 @@ th {
     </thead>
     <tbody>
       <%
-      if(tradeRequestReceived.size() > 0){
+      if(tradeRequestSent.size() > 0){
       for (TradePojo trade : tradeRequestSent){
       
       %>
