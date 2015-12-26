@@ -1,0 +1,35 @@
+create database barteringsystem;
+
+use barteringsystem;
+
+create table user(user_id int(50) primary key auto_increment,first_name varchar(100),last_name varchar(100),dob date,phone varchar(20),email_id varchar(100),address1 varchar(100),address2 varchar(100),city varchar(100),state varchar(100),zipcode int(50));
+
+insert into user values(102,'a','b',now(),'562-583-1234','kevaldsoni@gmail.com','5050 e','20','lb','ca',90815)
+
+create table account(id integer(10) primary key AUTO_INCREMENT ,user_id integer(10),email_id varchar(100),password varchar(200),login_attempt integer(10),account_blocked varchar(20),unblock_time datetime,FOREIGN KEY (user_id) REFERENCES user(user_id)  ON DELETE CASCADE);
+
+alter table account AUTO_INCREMENT=100;
+
+insert into account (user_id,email_id,password) values(101,'kevaldsoni@gmail.com','kevalbarter');
+
+create table category(cat_id integer(10) primary key,cat_name varchar(100));
+
+insert into category values(1,'Jewelry');
+insert into category values(2,'Appliance');
+insert into category values(3,'Clothes');
+insert into category values(4,'Furniture');
+insert into category values(5,'Artifacts');
+insert into category values(6,'Technology');
+commit;
+
+create table barter_post ( reqId integer(10) primary key AUTO_INCREMENT , title varchar(100),offering_cat_id integer(10) , item_offered varchar(100),expected_cat_id integer(10),expected_item varchar(100),item_picture varchar(100),trade_contact varchar(20),user_id integer(10),FOREIGN KEY (user_id) REFERENCES user(user_id),FOREIGN KEY (offering_cat_id) REFERENCES category(cat_id),FOREIGN KEY (expected_cat_id) REFERENCES category(cat_id));
+
+ALTER TABLE user ALTER user_rating SET DEFAULT 5;
+
+create table trade (trade_id int(10) primary key AUTO_INCREMENT , primary_req_id int(10),sec_req_id int(10) , req_status ENUM ('Request-Sent','Request-Approved','Barter-Finalised','Trade-Complete'),prim_user_rate int(10),sec_user_rate int(10),primary_trader_user_id int(10),trade_status_time datetime,trade_rating int(10),sec_trader_user_id int(10),trade_prim_rate int(10),trade_sec_rate int(10));
+
+insert into trade values(1,3,21,'Request-Approved',4,1);
+
+ALTER TABLE trade ALTER trade_prim_rate SET DEFAULT 0;
+
+ALTER TABLE trade ALTER trade_sec_rate SET DEFAULT 0;
